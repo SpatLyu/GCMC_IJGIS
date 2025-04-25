@@ -1,0 +1,61 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~                  Figure 6                ~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~    Author: Wenbo Lv; Date: 2025-05-25    ~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+if (!requireNamespace("ggradar")) {
+  devtools::install_github("ricardo-bion/ggradar", 
+                           dependencies = TRUE)
+}
+
+#------------------------------------------------------------------------------#
+#---------------------------      Figure 6a       -----------------------------#
+#------------------------------------------------------------------------------#
+
+df1 = readxl::read_xlsx("./Sensitivity analysis/figure6.xlsx",
+                        sheet = "elev_noise")
+fig6a = ggradar::ggradar(df1,
+                         label.gridline.min = F,
+                         label.gridline.mid = F,
+                         label.gridline.max = F,
+                         gridline.mid.colour = "transparent",
+                         group.line.width = 0.75,
+                         group.point.size = 2.05,
+                         legend.position = "bottom")
+fig6a
+
+#------------------------------------------------------------------------------#
+#---------------------------      Figure 6b       -----------------------------#
+#------------------------------------------------------------------------------#
+
+df2 = readxl::read_xlsx("./Sensitivity analysis/figure6.xlsx",
+                        sheet = "popd_noise")
+fig6b = ggradar::ggradar(df2,
+                         label.gridline.min = F,
+                         label.gridline.mid = F,
+                         label.gridline.max = F,
+                         gridline.mid.colour = "transparent",
+                         group.line.width = 0.75,
+                         group.point.size = 2.05,
+                         legend.position = "bottom")
+fig6b
+
+#------------------------------------------------------------------------------#
+#---------------------------      Figure 6c       -----------------------------#
+#------------------------------------------------------------------------------#
+
+df3 = readxl::read_xlsx("./Sensitivity analysis/figure6.xlsx",
+                        sheet = "all_noise")
+fig6c = ggradar::ggradar(df3,
+                         label.gridline.min = F,
+                         label.gridline.mid = F,
+                         label.gridline.max = F,
+                         gridline.mid.colour = "transparent",
+                         group.line.width = 0.75,
+                         group.point.size = 2.05,
+                         legend.position = "bottom")
+fig6c
