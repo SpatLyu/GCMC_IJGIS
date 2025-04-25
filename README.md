@@ -1,0 +1,67 @@
+# Reproducibility Instructions for GCMC
+
+This repository provides all the necessary materials to reproduce **Figures 3–6** from the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.
+
+## Directory Structure
+
+The folder is organized by case studies and corresponding figures:
+
+```
+├── Case of residential crime study         # Related to Figure 3
+│   ├── Figure3.r
+│   ├── Case of residential crime study.r
+│   ├── columbus.gpkg
+│   ├── *.rds, *.xlsx, etc.
+│
+├── Case of population density study        # Related to Figure 4
+│   ├── Figure4.r
+│   ├── Case of population density study.r
+│   ├── popd.csv
+│   ├── popd_nb.gal
+│   ├── *.rds, *.xlsx, etc.
+│
+├── Case of net primary productivity study  # Related to Figure 5
+│   ├── Figure5.r
+│   ├── Case of net primary productivity study.r
+│   ├── npp.tif
+│   ├── *.rds, *.xlsx, etc.
+│
+├── Sensitivity analysis                    # Related to Figure 6
+│   ├── Figure6.r
+│   ├── Sensitivity analysis.r
+│   ├── *.xlsx, etc.
+│
+├── Utils
+│   ├── ssh_q.r
+│   ├── process_results.r
+│   ├── plot_ca_matrix.r
+│
+├── GCMC_IJGIS.Rproj
+```
+
+## How to Reproduce the Figures
+
+1. **Open `GCMC_IJGIS.Rproj`** in RStudio (optional but recommended).
+2. **Install the required packages** (if not already installed):
+
+   ```r
+   install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr", "tibble", "ggplot2"))
+   devtools::install_github("ricardo-bion/ggradar", dependencies = TRUE)
+   install.packages(c("sf", "terra", "tmap", "sdsfun", "gdverse"))
+   install.packages("spEDM",
+                    repos = c("https://stscl.r-universe.dev",
+                              "https://cloud.r-project.org"),
+                    dep = TRUE)
+   ```
+
+3. **Run each script individually**:
+   
+   - Navigate to the folder for the corresponding figure.
+   - Open and run the script named `FigureX.r` (X = 3, 4, 5, or 6).
+   - Each script loads relevant data and outputs the figure.
+
+## Notes
+
+- This repository contains only **code and input data**. No figure images or PDFs are included.
+- All scripts are self-contained and documented with inline comments for clarity.
+- Intermediate `.rds` files are used for precomputed model results to reduce runtime.
