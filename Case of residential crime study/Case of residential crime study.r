@@ -69,6 +69,7 @@ readr::write_rds(pcc,'./Case of residential crime study/pcc_case1.rds')
 #------------------------------------------------------------------------------#
 
 source('./Utils/ssh_q.r')
+
 q1 = ssh_q(data = columdf,cause = "hoval",effect = "crime")
 q2 = ssh_q(data = columdf,cause = "inc",effect = "crime")
 q3 = ssh_q(data = columdf,cause = "hoval",effect = "inc")
