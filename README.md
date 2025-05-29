@@ -2,6 +2,16 @@
 
 This repository provides all the necessary materials to reproduce **Figures 3–6** from the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.
 
+## Runtime Environment
+
+The code has been tested and verified in the following environment:
+
+- **Operating System**: Ubuntu 22.04  
+- **R version**: 4.4.3  
+- **spEDM version**: 1.7  
+
+To ensure full reproducibility, it is recommended to match the environment above as closely as possible.
+
 ## Directory Structure
 
 The folder is organized by case studies and corresponding figures:
