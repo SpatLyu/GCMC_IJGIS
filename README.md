@@ -72,6 +72,6 @@ The folder is organized by case studies and corresponding figures:
 
 ## Notes
 
-- This repository contains only **code and input data**. No figure images or PDFs are included.
-- All scripts are self-contained and documented with inline comments for clarity.
-- Intermediate `.rds` files are used for precomputed model results to reduce runtime.
+- This repository includes only the *input data*, *model execution scripts / results*, and *plotting scripts* necessary to reproduce the case study figures in the paper. The final figure outputs are not included.
+- Intermediate .rds files store precomputed model results, allowing for faster reproduction of case study figures as presented in the manuscript.
+- All scripts are self-contained and include inline comments that explain the main purpose of each code block for clarity and ease of understanding.
