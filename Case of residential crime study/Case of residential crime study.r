@@ -14,7 +14,7 @@ columbus
 #------    Causality by Geographical Cross Mapping Cardinality (GCMC)    ------#
 #------------------------------------------------------------------------------#
 
-fnn(columbus,"crime", E = 1:15)
+fnn(columbus, "crime", E = 1:15)
 
 # housing value and crime (residential burglaries and vehicle thefts)
 g1 = gcmc(columbus,"hoval","crime", E = 7, k = 25)
@@ -36,18 +36,15 @@ readr::write_rds(gcmc_case1,'./Case of residential crime study/gcmc_case1.rds')
 #------------------------------------------------------------------------------#
 
 # housing value and crime (residential burglaries and vehicle thefts)
-g1 = gccm(data = columbus,cause = "hoval",effect = "crime",
-          libsizes = seq(5,45,5), E = 7, k = c(6,10))
+g1 = gccm(columbus, "hoval", "crime",  E = 7, k = 9)
 g1
 
 # household income and crime (residential burglaries and vehicle thefts)
-g2 = gccm(data = columbus,cause = "inc",effect = "crime",
-          libsizes = seq(5,45,5), E = c(5,8), k = c(3,10))
+g2 = gccm(columbus, "inc", "crime", E = 7, k = 9)
 g2
 
 # housing value and household income
-g3 = gccm(data = columbus,cause = "hoval",effect = "inc",
-          libsizes = seq(5,45,5), E = c(6,5), k = c(6,10))
+g3 = gccm(columbus, "hoval", "inc", E = 7, k = 9)
 g3
 
 gccm_case1 = list(g1,g2,g3)
