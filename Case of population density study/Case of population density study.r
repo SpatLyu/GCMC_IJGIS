@@ -19,7 +19,7 @@ popd_sf
 #------    Causality by Geographical Cross Mapping Cardinality (GCMC)    ------#
 #------------------------------------------------------------------------------#
 
-fnn(popd_sf,"popd", E = 1:15, eps = stats::sd(popd_sf$popd) / 10)
+fnn(popd_sf, "popd", E = 1:15, eps = stats::sd(popd_sf$popd) / 10)
 
 # temperature and population density
 g1 = gcmc(popd_sf, "tem", "popd", E = 10, k = 200, nb = popd_nb)
