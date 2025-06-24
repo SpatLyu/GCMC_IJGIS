@@ -19,16 +19,18 @@ popd_sf
 #------    Causality by Geographical Cross Mapping Cardinality (GCMC)    ------#
 #------------------------------------------------------------------------------#
 
+fnn(popd_sf,"popd", E = 1:15, eps = stats::sd(popd_sf$popd) / 10)
+
 # temperature and population density
-g1 = gcmc(popd_sf, "tem", "popd", E = 10, k = 200, nb = popd_nb, detrend = FALSE)
+g1 = gcmc(popd_sf, "tem", "popd", E = 10, k = 200, nb = popd_nb)
 g1
 
 # elevation and population density
-g2 = gcmc(popd_sf, "elev", "popd", E = 10, k = 200, nb = popd_nb, detrend = FALSE)
+g2 = gcmc(popd_sf, "elev", "popd", E = 10, k = 200, nb = popd_nb)
 g2
 
 # elevation and temperature
-g3 = gcmc(popd_sf, "elev", "tem", E = 10, k = 200, nb = popd_nb, detrend = FALSE)
+g3 = gcmc(popd_sf, "elev", "tem", E = 10, k = 200, nb = popd_nb)
 g3
 
 gcmc_case2 = list(g1,g2,g3)
@@ -39,18 +41,15 @@ readr::write_rds(gcmc_case2,'./Case of population density study/gcmc_case2.rds')
 #------------------------------------------------------------------------------#
 
 # temperature and population density
-g1 = gccm(data = popd_sf, cause = "tem", effect = "popd",
-          libsizes = seq(10, 2800, by = 100),E = c(2,5),k = 6,nb = popd_nb)
+g1 = gccm(popd_sf, "tem", "popd", E = 10, k = 12, nb = popd_nb)
 g1
 
 # elevation and population density
-g2 = gccm(data = popd_sf, cause = "elev", effect = "popd",
-          libsizes = seq(10, 2800, by = 100),E = c(1,5),k = 6,nb = popd_nb)
+g2 = gccm(popd_sf, "elev", "popd", E = 10, k = 12, nb = popd_nb)
 g2
 
 # elevation and temperature
-g3 = gccm(data = popd_sf, cause = "elev", effect = "tem",
-          libsizes = seq(10, 2800, by = 100),E = c(1,2),k = 6,nb = popd_nb)
+g3 = gccm(popd_sf, "elev", "tem", E = 10, k = 12, nb = popd_nb)
 g3
 
 gccm_case2 = list(g1,g2,g3)
