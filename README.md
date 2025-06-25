@@ -8,7 +8,7 @@ The code has been tested and verified in the following environment:
 
 - **Operating System**: Ubuntu 22.04  
 - **R version**: 4.4.3  
-- **spEDM version**: 1.7  
+- **spEDM version**: 1.8  
 
 To ensure full reproducibility, it is recommended to match the environment above as closely as possible.
 
