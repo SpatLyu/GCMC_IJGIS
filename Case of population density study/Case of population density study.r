@@ -93,7 +93,7 @@ case2 = list(
   pcc = readr::read_rds("./Case of population density study/pcc_case2.rds") |>
     .process_pcc_result(),
   gd = readr::read_rds("./Case of population density study/gd_case2.rds") |>
-    dplyr::select(cause = x, effect = y, ca = qv, sig)
+    dplyr::select(cause = x, effect = y, cs = qv, sig)
 )
 case2
 
