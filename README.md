@@ -1,6 +1,6 @@
 # Reproducibility Instructions for GCMC
 
-This repository provides all the necessary materials to reproduce **Figures 3–6** from the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.
+This repository provides all the necessary materials to reproduce **Figures 4–7** from the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.
 
 ## Runtime Environment
 
