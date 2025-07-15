@@ -17,34 +17,34 @@ To ensure full reproducibility, it is recommended to match the environment above
 The folder is organized by case studies and corresponding figures:
 
 ```
-├── Case of residential crime study         # Related to Figure 3
-│   ├── Figure3.r
+├── Case of residential crime study         # Related to Figure 4
+│   ├── Figure4.r
 │   ├── Case of residential crime study.r
 │   ├── columbus.gpkg
 │   ├── *.rds, *.xlsx, etc.
 │
-├── Case of population density study        # Related to Figure 4
-│   ├── Figure4.r
+├── Case of population density study        # Related to Figure 5
+│   ├── Figure5.r
 │   ├── Case of population density study.r
 │   ├── popd.csv
 │   ├── popd_nb.gal
 │   ├── *.rds, *.xlsx, etc.
 │
-├── Case of net primary productivity study  # Related to Figure 5
-│   ├── Figure5.r
+├── Case of net primary productivity study  # Related to Figure 6
+│   ├── Figure6.r
 │   ├── Case of net primary productivity study.r
 │   ├── npp.tif
 │   ├── *.rds, *.xlsx, etc.
 │
-├── Sensitivity analysis                    # Related to Figure 6
-│   ├── Figure6.r
+├── Sensitivity analysis                    # Related to Figure 7
+│   ├── Figure7.r
 │   ├── Sensitivity analysis.r
 │   ├── *.xlsx, etc.
 │
 ├── Utils
 │   ├── ssh_q.r
 │   ├── process_results.r
-│   ├── plot_ca_matrix.r
+│   ├── plot_cs_matrix.r
 │
 ├── GCMC_IJGIS.Rproj
 ```
@@ -67,7 +67,7 @@ The folder is organized by case studies and corresponding figures:
 3. **Run each script individually**:
    
    - Navigate to the folder for the corresponding figure.
-   - Open and run the script named `FigureX.r` (X = 3, 4, 5, or 6).
+   - Open and run the script named `FigureX.r` (X = 4, 5, 6, or 7).
    - Each script loads relevant data and outputs the figure.
 
 ## Notes
