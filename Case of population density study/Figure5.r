@@ -6,40 +6,40 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-source('./Utils/plot_ca_matrix.r')
+source('./Utils/plot_cs_matrix.r')
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 5a       -----------------------------#
 #------------------------------------------------------------------------------#
 
-pcc = readxl::read_xlsx("./Case of net primary productivity study/Case of net primary productivity study.xlsx",
+pcc = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                         sheet = "pcc")
-fig5a = plot_ca_matrix(pcc)
+fig5a = plot_cs_matrix(pcc)
 fig5a
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 5b       -----------------------------#
 #------------------------------------------------------------------------------#
 
-gd = readxl::read_xlsx("./Case of net primary productivity study/Case of net primary productivity study.xlsx",
+gd = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                        sheet = "gd")
-fig5b = plot_ca_matrix(gd)
+fig5b = plot_cs_matrix(gd)
 fig5b
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 5c       -----------------------------#
 #------------------------------------------------------------------------------#
 
-gccm = readxl::read_xlsx("./Case of net primary productivity study/Case of net primary productivity study.xlsx",
+gccm = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                          sheet = "gccm")
-fig5c = plot_ca_matrix(gccm)
+fig5c = plot_cs_matrix(gccm)
 fig5c
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 5d       -----------------------------#
 #------------------------------------------------------------------------------#
 
-gcmc = readxl::read_xlsx("./Case of net primary productivity study/Case of net primary productivity study.xlsx",
+gcmc = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                          sheet = "gcmc")
-fig5d = plot_ca_matrix(gcmc)
+fig5d = plot_cs_matrix(gcmc)
 fig5d

@@ -1,23 +1,23 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~                  Figure 3                ~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~                  Figure 4                ~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 library(tmap)
-source('./Utils/plot_ca_matrix.r')
+source('./Utils/plot_cs_matrix.r')
 
 columbus = sf::read_sf("./Case of residential crime study/columbus.gpkg") |> 
   dplyr::select(hoval,inc,crime)
 columbus
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 3a       -----------------------------#
+#---------------------------      Figure 4a       -----------------------------#
 #------------------------------------------------------------------------------#
 
-fig3a = tm_shape(columbus) + 
+fig4a = tm_shape(columbus) + 
   tm_polygons(fill = "crime",
               fill.scale = tm_scale_continuous(n = 5),
               fill.legend = tm_legend(
@@ -43,13 +43,13 @@ fig3a = tm_shape(columbus) +
             legend.title.fontfamily = "serif",
             legend.text.size = 1.25,
             legend.text.fontfamily = "serif")
-fig3a
+fig4a
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 3b       -----------------------------#
+#---------------------------      Figure 4b       -----------------------------#
 #------------------------------------------------------------------------------#
 
-fig3b = tm_shape(columbus) + 
+fig4b = tm_shape(columbus) + 
   tm_polygons(fill = "hoval",
               fill.scale = tm_scale_continuous(n = 5),
               fill.legend = tm_legend(
@@ -74,13 +74,13 @@ fig3b = tm_shape(columbus) +
             legend.title.fontfamily = "serif",
             legend.text.size = 1.25,
             legend.text.fontfamily = "serif")
-fig3b
+fig4b
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 3c       -----------------------------#
+#---------------------------      Figure 4c       -----------------------------#
 #------------------------------------------------------------------------------#
 
-fig3c = tm_shape(columbus) + 
+fig4c = tm_shape(columbus) + 
   tm_polygons(fill = "inc",
               fill.scale = tm_scale_continuous(n = 5),
               fill.legend = tm_legend(
@@ -105,40 +105,40 @@ fig3c = tm_shape(columbus) +
             legend.title.fontfamily = "serif",
             legend.text.size = 1.25,
             legend.text.fontfamily = "serif")
-fig3c
+fig4c
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 3d       -----------------------------#
+#---------------------------      Figure 4d       -----------------------------#
 #------------------------------------------------------------------------------#
 
 pcc = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
                         sheet = "pcc")
-fig3d = plot_ca_matrix(pcc)
-fig3d
+fig4d = plot_cs_matrix(pcc)
+fig4d
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 3e       -----------------------------#
+#---------------------------      Figure 4e       -----------------------------#
 #------------------------------------------------------------------------------#
 
 gd = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
                         sheet = "gd")
-fig3e = plot_ca_matrix(gd)
-fig3e
+fig4e = plot_cs_matrix(gd)
+fig4e
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 3f       -----------------------------#
+#---------------------------      Figure 4f       -----------------------------#
 #------------------------------------------------------------------------------#
 
 gccm = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
                         sheet = "gccm")
-fig3f = plot_ca_matrix(gccm)
-fig3f
+fig4f = plot_cs_matrix(gccm)
+fig4f
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 3g       -----------------------------#
+#---------------------------      Figure 4g       -----------------------------#
 #------------------------------------------------------------------------------#
 
 gcmc = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
                          sheet = "gcmc")
-fig3g = plot_ca_matrix(gcmc)
-fig3g
+fig4g = plot_cs_matrix(gcmc)
+fig4g

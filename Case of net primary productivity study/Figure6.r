@@ -1,45 +1,45 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~                  Figure 4                ~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~                  Figure 6                ~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-source('./Utils/plot_ca_matrix.r')
+source('./Utils/plot_cs_matrix.r')
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 4a       -----------------------------#
+#---------------------------      Figure 6a       -----------------------------#
 #------------------------------------------------------------------------------#
 
-pcc = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
+pcc = readxl::read_xlsx("./Case of net primary productivity study/Case of net primary productivity study.xlsx",
                         sheet = "pcc")
-fig4a = plot_ca_matrix(pcc)
-fig4a
+fig6a = plot_cs_matrix(pcc)
+fig6a
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 4b       -----------------------------#
+#---------------------------      Figure 6b       -----------------------------#
 #------------------------------------------------------------------------------#
 
-gd = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
+gd = readxl::read_xlsx("./Case of net primary productivity study/Case of net primary productivity study.xlsx",
                        sheet = "gd")
-fig4b = plot_ca_matrix(gd)
-fig4b
+fig6b = plot_cs_matrix(gd)
+fig6b
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 4c       -----------------------------#
+#---------------------------      Figure 6c       -----------------------------#
 #------------------------------------------------------------------------------#
 
-gccm = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
+gccm = readxl::read_xlsx("./Case of net primary productivity study/Case of net primary productivity study.xlsx",
                          sheet = "gccm")
-fig4c = plot_ca_matrix(gccm)
-fig4c
+fig6c = plot_cs_matrix(gccm)
+fig6c
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 4d       -----------------------------#
+#---------------------------      Figure 6d       -----------------------------#
 #------------------------------------------------------------------------------#
 
-gcmc = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
+gcmc = readxl::read_xlsx("./Case of net primary productivity study/Case of net primary productivity study.xlsx",
                          sheet = "gcmc")
-fig4d = plot_ca_matrix(gcmc)
-fig4d
+fig6d = plot_cs_matrix(gcmc)
+fig6d
