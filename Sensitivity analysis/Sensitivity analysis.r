@@ -62,7 +62,7 @@ noise_levels = paste0(a * 100, "% noise")
 noise_levels[1] = "no noise"
 
 .rearrange_noise_result = \(sheetname){
-  res = readxl::read_xlsx('./result/sensitivity.xlsx',sheet = sheetname) |> 
+  res = readxl::read_xlsx('./Sensitivity analysis/Sensitivity analysis.xlsx',sheet = sheetname) |> 
     dplyr::select(eta,
                   `popd -> elev` = x_xmap_y_mean,
                   `elev -> popd` = y_xmap_x_mean) |> 
@@ -79,4 +79,4 @@ res = purrr::map(paste0(c("elev","popd","all"),"_noise"),
                  .rearrange_noise_result) |> 
   purrr::set_names(paste0(c("elev","popd","all"),"_noise"))
 
-writexl::write_xlsx(res,'./Sensitivity analysis/figure6.xlsx')
+writexl::write_xlsx(res,'./Sensitivity analysis/figure7.xlsx')

@@ -1,7 +1,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~                  Figure 6                ~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~                  Figure 7                ~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -12,12 +12,12 @@ if (!requireNamespace("ggradar")) {
 }
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 6a       -----------------------------#
+#---------------------------      Figure 7a       -----------------------------#
 #------------------------------------------------------------------------------#
 
-df1 = readxl::read_xlsx("./Sensitivity analysis/figure6.xlsx",
+df1 = readxl::read_xlsx("./Sensitivity analysis/figure7.xlsx",
                         sheet = "elev_noise")
-fig6a = ggradar::ggradar(df1,
+fig7a = ggradar::ggradar(df1,
                          label.gridline.min = F,
                          label.gridline.mid = F,
                          label.gridline.max = F,
@@ -29,15 +29,15 @@ fig6a = ggradar::ggradar(df1,
                          group.line.width = 0.75,
                          group.point.size = 2.05,
                          legend.position = "bottom")
-fig6a
+fig7a
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 6b       -----------------------------#
+#---------------------------      Figure 7b       -----------------------------#
 #------------------------------------------------------------------------------#
 
-df2 = readxl::read_xlsx("./Sensitivity analysis/figure6.xlsx",
+df2 = readxl::read_xlsx("./Sensitivity analysis/figure7.xlsx",
                         sheet = "popd_noise")
-fig6b = ggradar::ggradar(df2,
+fig7b = ggradar::ggradar(df2,
                          label.gridline.min = F,
                          label.gridline.mid = F,
                          label.gridline.max = F,
@@ -49,15 +49,15 @@ fig6b = ggradar::ggradar(df2,
                          group.line.width = 0.75,
                          group.point.size = 2.05,
                          legend.position = "bottom")
-fig6b
+fig7b
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 6c       -----------------------------#
+#---------------------------      Figure 7c       -----------------------------#
 #------------------------------------------------------------------------------#
 
-df3 = readxl::read_xlsx("./Sensitivity analysis/figure6.xlsx",
+df3 = readxl::read_xlsx("./Sensitivity analysis/figure7.xlsx",
                         sheet = "all_noise")
-fig6c = ggradar::ggradar(df3,
+fig7c = ggradar::ggradar(df3,
                          label.gridline.min = F,
                          label.gridline.mid = F,
                          label.gridline.max = F,
@@ -69,4 +69,4 @@ fig6c = ggradar::ggradar(df3,
                          group.line.width = 0.75,
                          group.point.size = 2.05,
                          legend.position = "bottom")
-fig6c
+fig7c
