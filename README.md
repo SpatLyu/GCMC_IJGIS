@@ -41,6 +41,10 @@ The folder is organized by case studies and corresponding figures:
 │   ├── Sensitivity analysis.r
 │   ├── *.xlsx, etc.
 │
+├── Synthetic benchmark
+│   ├── Synthetic benchmark.r
+|   ├── *.rds, etc.
+|
 ├── Utils
 │   ├── ssh_q.r
 │   ├── process_results.r
