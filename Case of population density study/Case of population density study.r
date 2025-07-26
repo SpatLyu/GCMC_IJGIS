@@ -11,7 +11,7 @@ library(spEDM)
 popd_nb = spdep::read.gal('./Case of population density study/popd_nb.gal')
 popd = readr::read_csv('./Case of population density study/popd.csv')
 popd_sf = popd |> 
-  sf::st_as_sf(coords = c("x","y"), crs = 4326) |> 
+  sf::st_as_sf(coords = c("lon","lat"), crs = 4326) |> 
   dplyr::select(popd,elev,tem)
 popd_sf
 
