@@ -186,7 +186,7 @@ source("Sensitivity analysis/Figure7.r")
 
 ---
 
-## 5. Notes
+## Notes
 
 * **Intermediate `.rds` files** are included to allow faster reproduction. Running the full workflow scripts will regenerate them from raw data.
 * **Metrics** reported in Sections 3–4 of the manuscript are computed automatically in the workflow scripts and saved as `.xlsx` files.
