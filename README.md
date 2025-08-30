@@ -156,7 +156,7 @@ source("Case of population density study/Figure5.r")
 3. Apply comparative models and our gcmc model.
 4. Save outputs.
 5. Compute performance metrics.
-6. Plot maps and causal structure (Figure 6).
+6. Plot results (Figure 6).
 
 **Reproduce with**:
 
