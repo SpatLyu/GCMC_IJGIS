@@ -1,6 +1,15 @@
 # Reproducibility Instructions for GCMC
 
-This repository provides all the necessary materials to reproduce **Figures 4–7** from the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.
+This repository provides all the necessary materials to **fully reproduce all findings** (figures and assessment metrics) reported in the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.  
+
+The materials cover:
+- **Synthetic Benchmark Experiment (Figure 3)**
+- **Case Study 1: Residential Crime (Figure 4)**
+- **Case Study 2: Population Density (Figure 5)**
+- **Case Study 3: Net Primary Productivity (Figure 6)**
+- **Noise Sensitivity Analysis (Figure 7)**
+
+All reproduction workflows start from the **shared source data** in this repository and end with the **analysis/modeling outputs** and **visualizations** presented in the manuscript.
 
 ## Runtime Environment
 
@@ -41,7 +50,7 @@ The folder is organized by case studies and corresponding figures:
 │   ├── Sensitivity analysis.r
 │   ├── *.xlsx, etc.
 │
-├── Synthetic benchmark
+├── Synthetic benchmark                     # Related to Figure 3
 │   ├── Synthetic benchmark.r
 |   ├── *.rds, etc.
 |
@@ -53,29 +62,136 @@ The folder is organized by case studies and corresponding figures:
 ├── GCMC_IJGIS.Rproj
 ```
 
-## How to Reproduce the Figures
+## Required Packages
 
-1. **Open `GCMC_IJGIS.Rproj`** in RStudio (optional but recommended).
-2. **Install the required packages** (if not already installed):
+Please install the following packages before running the scripts:
 
-   ```r
-   install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr", "tibble", "ggplot2"))
-   devtools::install_github("ricardo-bion/ggradar", dependencies = TRUE)
-   install.packages(c("sf", "terra", "tmap", "sdsfun", "gdverse"))
-   install.packages("spEDM",
-                    repos = c("https://stscl.r-universe.dev",
-                              "https://cloud.r-project.org"),
-                    dep = TRUE)
-   ```
+```r
+install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr", "tibble", "ggplot2"))
+devtools::install_github("ricardo-bion/ggradar", dependencies = TRUE)
+install.packages(c("sf", "terra", "tmap", "sdsfun", "gdverse"))
+install.packages("spEDM",
+                 repos = c("https://stscl.r-universe.dev",
+                           "https://cloud.r-project.org"),
+                 dep = TRUE)
+```
 
-3. **Run each script individually**:
-   
-   - Navigate to the folder for the corresponding figure.
-   - Open and run the script named `FigureX.r` (X = 4, 5, 6, or 7).
-   - Each script loads relevant data and outputs the figure.
+## Reproducibility Workflows
 
-## Notes
+### General Instructions
 
-- This repository includes only the *input data*, *model execution scripts / results*, and *plotting scripts* necessary to reproduce the case study figures in the paper. The final figure outputs are not included.
-- Intermediate .rds files store precomputed model results, allowing for faster reproduction of case study figures as presented in the manuscript.
-- All scripts are self-contained and include inline comments that explain the main purpose of each code block for clarity and ease of understanding.
+1. **Open `GCMC_IJGIS.Rproj`** in RStudio (recommended).
+2. All data paths in scripts are **relative paths** to ensure portability.
+3. Each folder contains:
+
+   * `Case ... .r` or `Synthetic benchmark.r`: **Complete workflow script** (from raw data → preprocessing → GCMC modeling → metric computation → saving results).
+   * `FigureX.r`: **Plotting script only** (loads `.rds` intermediate results and produces the figure).
+4. To **fully reproduce** findings, run the workflow script first, then the corresponding `FigureX.r`.
+   To **quickly reproduce plots only**, run `FigureX.r` directly (using precomputed `.rds` results).
+
+---
+
+### Synthetic Benchmark (Figure 3)
+
+**Workflow**:
+
+1. Run benchmark simulation (`Synthetic benchmark.r`).
+2. Save results (`.rds`).
+3. Summarize metrics (causal strength and significance.).
+4. Visualize benchmark results with PowerPoint.
+
+**Reproduce with**:
+
+```r
+source("Synthetic benchmark/Synthetic benchmark.r")
+```
+
+---
+
+### Case Study 1: Residential Crime (Figure 4)
+
+**Workflow**:
+
+1. Load spatial data (`columbus.gpkg`).
+2. Apply comparative models and our gcmc model.
+3. Save model outputs (stored in `.rds`).
+4. Compute assessment metrics (causal strength and significance).
+5. Plot final results using `Figure4.r`.
+
+**Reproduce with**:
+
+```r
+source("Case of residential crime study/Case of residential crime study.r")
+source("Case of residential crime study/Figure4.r")
+```
+
+---
+
+### Case Study 2: Population Density (Figure 5)
+
+**Workflow**:
+
+1. Load CSV (`popd.csv`) and spatial weights (`popd_nb.gal`).
+2. Preprocess spatial neighbor.
+3. Apply comparative models and our gcmc model.
+4. Save model outputs.
+5. Compute reported metrics.
+6. Plot results using `Figure5.r`.
+
+**Reproduce with**:
+
+```r
+source("Case of population density study/Case of population density study.r")
+source("Case of population density study/Figure5.r")
+```
+
+---
+
+### Case Study 3: Net Primary Productivity (Figure 6)
+
+**Workflow**:
+
+1. Load raster data (`npp.tif`).
+2. Extract values, preprocess for nan values.
+3. Apply comparative models and our gcmc model.
+4. Save outputs.
+5. Compute performance metrics.
+6. Plot maps and causal structure (Figure 6).
+
+**Reproduce with**:
+
+```r
+source("Case of net primary productivity study/Case of net primary productivity study.r")
+source("Case of net primary productivity study/Figure6.r")
+```
+
+---
+
+### Sensitivity Analysis (Figure 7)
+
+**Workflow**:
+
+1. Load simulation inputs (from shared `.xlsx`).
+2. Perform noise perturbation experiments.
+3. Run GCMC with perturbed datasets.
+4. Collect performance metrics under varying noise levels.
+5. Plot radar charts / sensitivity diagrams.
+
+**Reproduce with**:
+
+```r
+source("Sensitivity analysis/Sensitivity analysis.r")
+source("Sensitivity analysis/Figure7.r")
+```
+
+---
+
+## 5. Notes
+
+* **Intermediate `.rds` files** are included to allow faster reproduction. Running the full workflow scripts will regenerate them from raw data.
+* **Tables and metrics** reported in Sections 3–4 of the manuscript are computed automatically in the workflow scripts and saved as `.xlsx` files.
+* **All paths are relative**, so no manual modification is required.
+
+---
+
+By following these instructions, reviewers and readers can reproduce **all figures (4–7) and reported metrics** in the manuscript **without modifying any code**.
