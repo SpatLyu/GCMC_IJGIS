@@ -85,9 +85,9 @@ install.packages("spEDM",
 3. Each folder contains:
 
    * `Case ... .r` or `Synthetic benchmark.r`: **Complete workflow script** (from raw data → preprocessing → GCMC modeling → metric computation → saving results).
-   * `FigureX.r`: **Plotting script only** (loads `.rds` intermediate results and produces the figure).
+   * `FigureX.r`: **Plotting script only** (loads `.xlsx` results and produces the figure).
 4. To **fully reproduce** findings, run the workflow script first, then the corresponding `FigureX.r`.
-   To **quickly reproduce plots only**, run `FigureX.r` directly (using precomputed `.rds` results).
+   To **quickly reproduce plots only**, run `FigureX.r` directly (using precomputed `.xlsx` results).
 
 ---
 
@@ -114,7 +114,7 @@ source("Synthetic benchmark/Synthetic benchmark.r")
 
 1. Load spatial data (`columbus.gpkg`).
 2. Apply comparative models and our gcmc model.
-3. Save model outputs (stored in `.rds`).
+3. Save model outputs (stored in `.rds` and `.xlsx`).
 4. Compute assessment metrics (causal strength and significance).
 5. Plot final results using `Figure4.r`.
 
