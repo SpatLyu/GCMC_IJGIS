@@ -30,6 +30,8 @@ fig7a = ggradar::ggradar(df1,
                          group.point.size = 2.05,
                          legend.position = "bottom")
 fig7a
+ggplot2::ggsave('./Sensitivity analysis/fig7a.png',
+                fig7a, width = 6.55, height = 5.85, dpi = 300)
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 7b       -----------------------------#
@@ -50,6 +52,8 @@ fig7b = ggradar::ggradar(df2,
                          group.point.size = 2.05,
                          legend.position = "bottom")
 fig7b
+ggplot2::ggsave('./Sensitivity analysis/fig7b.png',
+                fig7b, width = 6.55, height = 5.85, dpi = 300)
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 7c       -----------------------------#
@@ -70,3 +74,5 @@ fig7c = ggradar::ggradar(df3,
                          group.point.size = 2.05,
                          legend.position = "bottom")
 fig7c
+ggplot2::ggsave('./Sensitivity analysis/fig7c.png',
+                fig7c, width = 6.55, height = 5.85, dpi = 300)
