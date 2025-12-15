@@ -11,7 +11,7 @@ columbus = sf::read_sf("./Case of residential crime study/columbus.gpkg")
 columbus
 
 #------------------------------------------------------------------------------#
-#------    Causality by Geographical Cross Mapping Cardinality (GCMC)    ------#
+#------    Causation by Geographical Cross Mapping Cardinality (GCMC)    ------#
 #------------------------------------------------------------------------------#
 
 fnn(columbus, "crime", E = 1:15)
@@ -32,7 +32,7 @@ gcmc_case1 = list(g1,g2,g3)
 readr::write_rds(gcmc_case1,'./Case of residential crime study/gcmc_case1.rds')
 
 #------------------------------------------------------------------------------#
-#------    Causality by Geographical Convergent Cross Mapping (GCCM)     ------#
+#------    Causation by Geographical Convergent Cross Mapping (GCCM)     ------#
 #------------------------------------------------------------------------------#
 
 # housing value and crime (residential burglaries and vehicle thefts)
