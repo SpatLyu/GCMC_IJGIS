@@ -80,7 +80,7 @@ install.packages("spEDM",
 
 ### General Instructions
 
-1. **Open `GCMC_IJGIS.Rproj`** in RStudio (recommended).
+1. **Open `GCMC_IJGIS.Rproj`** in RStudio (recommended), or open the project root directory in Positron.
 2. All data paths in scripts are **relative paths** to ensure portability.
 3. Each folder contains:
 
