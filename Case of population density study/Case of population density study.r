@@ -70,6 +70,15 @@ pcc = psych::corr.test(popdf)
 pcc
 readr::write_rds(pcc,'./Case of population density study/pcc_case2.rds')
 
+#-----------------------------------------------------------------------------#
+#------                  Causation by Direct LiNGAM                     ------#
+#-----------------------------------------------------------------------------#
+
+source('./Utils/directlingam_cf.r')
+
+directlingam = run_directlingam(popdf)
+readr::write_rds(directlingam,'./Case of population density study/directlingam_case2.rds')
+
 #------------------------------------------------------------------------------#
 #------            Association by Geographical Detector (GD)             ------#
 #------------------------------------------------------------------------------#
@@ -98,6 +107,8 @@ case2 = list(
     purrr::list_rbind(),
   pcc = readr::read_rds("./Case of population density study/pcc_case2.rds") |>
     .process_pcc_result(),
+  directlingam = readr::read_rds("./Case of population density study/directlingam_case2.rds") |>
+    .convert_result_list2df(),
   gd = readr::read_rds("./Case of population density study/gd_case2.rds") |>
     dplyr::select(cause = x, effect = y, cs = qv, sig)
 )
