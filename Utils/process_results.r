@@ -1,3 +1,8 @@
+if (!requireNamespace("purrr")) install.packages("purrr")
+if (!requireNamespace("tibble")) install.packages("tibble")
+if (!requireNamespace("tidyr")) install.packages("tidyr")
+if (!requireNamespace("dplyr")) install.packages("dplyr")
+
 .process_xmap_result = \(g,gcmc = TRUE){
   tempdf = g$xmap
   tempdf$x = g$varname[1]
@@ -21,23 +26,25 @@
   return(rbind(g1,g2))
 }
 
-.process_pcc_result = \(g){
-  pcc_v = g |> 
-    purrr::pluck("r") |> 
+.convert_result_list2df = \(l){
+  cf_val = l |> 
+    purrr::pluck(1) |> 
     as.data.frame() |> 
-    tibble::rownames_to_column(var = "cause") |> 
+    tibble::rownames_to_column(var = "effect") |> 
     tidyr::pivot_longer(cols = -1,
-                        names_to = "effect",
+                        names_to = "cause",
                         values_to = "cs") |> 
     dplyr::filter(cause != effect)
-  pcc_p = g |> 
-    purrr::pluck("p") |> 
+  cf_p = l |> 
+    purrr::pluck(2) |> 
     as.data.frame() |> 
-    tibble::rownames_to_column(var = "cause") |> 
+    tibble::rownames_to_column(var = "effect") |> 
     tidyr::pivot_longer(cols = -1,
-                        names_to = "effect",
+                        names_to = "cause",
                         values_to = "sig") |> 
     dplyr::filter(cause != effect)
-  return(dplyr::left_join(pcc_v,pcc_p,
-                          by = c("cause","effect")))
+  res = cf_val |> 
+    dplyr::left_join(cf_p,by = c("cause","effect")) |> 
+    dplyr::select(cause,effect,dplyr::everything())
+  return(res)
 }

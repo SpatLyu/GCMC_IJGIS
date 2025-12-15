@@ -26,10 +26,10 @@ s_elev = a |>
   purrr::map_dfc(\(.a) (1+.a*eta)*popd$elev) |> 
   purrr::set_names(paste0("e","_",a))
 popd_sf = popd |> 
-  dplyr::select(elev,popd,x,y) |> 
+  dplyr::select(elev,popd,lon,lat) |> 
   dplyr::bind_cols(s_popd) |> 
   dplyr::bind_cols(s_elev) |> 
-  sf::st_as_sf(coords = c("x","y"), crs = 4326)
+  sf::st_as_sf(coords = c("lon","lat"), crs = 4326)
 popd_sf
 
 .run_gcmc_with_noise = \(x,y){
@@ -37,8 +37,8 @@ popd_sf
   y = rep(y,length.out = length(a))
   res = data.frame()
   for (i in seq_along(a)) {
-    g = gcmc(data = popd_sf, cause = x[i], effect = y[i],
-             E = 10, k = 200, nb = popd_nb)
+    g = spEDM::gcmc(data = popd_sf, cause = x[i], effect = y[i],
+                    E = 10, k = 168, nb = popd_nb)
     
     tempdf = g$xmap |> 
       dplyr::select(x_xmap_y_mean,x_xmap_y_sig,

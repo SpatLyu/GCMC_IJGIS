@@ -17,7 +17,7 @@ The code has been tested and verified in the following environment:
 
 - **Operating System**: Ubuntu 22.04  
 - **R version**: 4.4.3  
-- **spEDM version**: 1.8  
+- **spEDM version**: 1.9  
 
 To ensure full reproducibility, it is recommended to match the environment above as closely as possible.
 
@@ -67,7 +67,7 @@ The folder is organized by case studies and corresponding figures:
 Please install the following packages before running the scripts:
 
 ```r
-install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr", "tibble", "ggplot2"))
+install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr", "tibble", "ggplot2", "ggview"))
 devtools::install_github("ricardo-bion/ggradar", dependencies = TRUE)
 install.packages(c("sf", "terra", "tmap", "sdsfun", "gdverse"))
 install.packages("spEDM",
@@ -80,14 +80,14 @@ install.packages("spEDM",
 
 ### General Instructions
 
-1. **Open `GCMC_IJGIS.Rproj`** in RStudio (recommended).
+1. **Open `GCMC_IJGIS.Rproj`** in RStudio (recommended), or open the project root directory in Positron.
 2. All data paths in scripts are **relative paths** to ensure portability.
 3. Each folder contains:
 
    * `Case ... .r` or `Synthetic benchmark.r`: **Complete workflow script** (from raw data → preprocessing → GCMC modeling → metric computation → saving results).
-   * `FigureX.r`: **Plotting script only** (loads `.rds` intermediate results and produces the figure).
+   * `FigureX.r`: **Plotting script only** (loads `.xlsx` results and produces the figure).
 4. To **fully reproduce** findings, run the workflow script first, then the corresponding `FigureX.r`.
-   To **quickly reproduce plots only**, run `FigureX.r` directly (using precomputed `.rds` results).
+   To **quickly reproduce plots only**, run `FigureX.r` directly (using precomputed `.xlsx` results).
 
 ---
 
@@ -114,7 +114,7 @@ source("Synthetic benchmark/Synthetic benchmark.r")
 
 1. Load spatial data (`columbus.gpkg`).
 2. Apply comparative models and our gcmc model.
-3. Save model outputs (stored in `.rds`).
+3. Save model outputs (stored in `.rds` and `.xlsx`).
 4. Compute assessment metrics (causal strength and significance).
 5. Plot final results using `Figure4.r`.
 
