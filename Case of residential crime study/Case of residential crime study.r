@@ -65,6 +65,15 @@ pcc = psych::corr.test(columdf)
 pcc
 readr::write_rds(pcc,'./Case of residential crime study/pcc_case1.rds')
 
+#-----------------------------------------------------------------------------#
+#------                  Causation by Direct LiNGAM                     ------#
+#-----------------------------------------------------------------------------#
+
+source('./Utils/directlingam_cf.r')
+
+directlingam = run_directlingam(columdf)
+readr::write_rds(directlingam,'./Case of residential crime study/directlingam_case1.rds')
+
 #------------------------------------------------------------------------------#
 #------            Association by Geographical Detector (GD)             ------#
 #------------------------------------------------------------------------------#
@@ -91,8 +100,10 @@ case1 = list(
   gccm = readr::read_rds("./Case of residential crime study/gccm_case1.rds") |> 
     purrr::map(.process_xmap_result,gcmc = FALSE) |> 
     purrr::list_rbind(),
-  pcc = readr::read_rds("./Case of residential crime study/pcc_case1.rds") |>
-    .process_pcc_result(),
+  pcc = readr::read_rds("./Case of residential crime study/pcc_case1.rds")[c("r","p")] |>
+    .convert_result_list2df(),
+  directlingam = readr::read_rds("./Case of residential crime study/directlingam_case1.rds") |>
+    .convert_result_list2df(),
   gd = readr::read_rds("./Case of residential crime study/gd_case1.rds") |>
     dplyr::select(cause = x, effect = y, cs = qv, sig)
 )
