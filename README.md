@@ -67,13 +67,10 @@ The folder is organized by case studies and corresponding figures:
 Please install the following packages before running the scripts:
 
 ```r
-install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr", "tibble", "ggplot2", "ggview"))
+install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr", "tidyr", "tibble", "ggplot2"))
 devtools::install_github("ricardo-bion/ggradar", dependencies = TRUE)
 install.packages(c("sf", "terra", "tmap", "sdsfun", "gdverse"))
-install.packages("spEDM",
-                 repos = c("https://stscl.r-universe.dev",
-                           "https://cloud.r-project.org"),
-                 dep = TRUE)
+install.packages("spEDM")
 ```
 
 ## Reproducibility Workflows
