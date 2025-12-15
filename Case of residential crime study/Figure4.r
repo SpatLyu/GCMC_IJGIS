@@ -44,6 +44,7 @@ fig4a = tm_shape(columbus) +
             legend.text.size = 1.25,
             legend.text.fontfamily = "serif")
 fig4a
+tmap_save(fig4a,'./Case of residential crime study/fig4a.png',dpi = 300)
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 4b       -----------------------------#
@@ -75,6 +76,7 @@ fig4b = tm_shape(columbus) +
             legend.text.size = 1.25,
             legend.text.fontfamily = "serif")
 fig4b
+tmap_save(fig4b,'./Case of residential crime study/fig4b.png',dpi = 300)
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 4c       -----------------------------#
@@ -106,6 +108,7 @@ fig4c = tm_shape(columbus) +
             legend.text.size = 1.25,
             legend.text.fontfamily = "serif")
 fig4c
+tmap_save(fig4c,'./Case of residential crime study/fig4c.png',dpi = 300)
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 4d       -----------------------------#
@@ -115,6 +118,8 @@ pcc = readxl::read_xlsx("./Case of residential crime study/Case of residential c
                         sheet = "pcc")
 fig4d = plot_cs_matrix(pcc)
 fig4d
+ggplot2::ggsave('./Case of residential crime study/fig4d.png',
+                fig4d, width = 3.65, height = 4.05, dpi = 300)
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 4e       -----------------------------#
@@ -124,21 +129,38 @@ gd = readxl::read_xlsx("./Case of residential crime study/Case of residential cr
                         sheet = "gd")
 fig4e = plot_cs_matrix(gd)
 fig4e
+ggplot2::ggsave('./Case of residential crime study/fig4e.png',
+                fig4e, width = 3.65, height = 4.05, dpi = 300)
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 4f       -----------------------------#
 #------------------------------------------------------------------------------#
 
 gccm = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
-                        sheet = "gccm")
+                        sheet = "directlingam")
 fig4f = plot_cs_matrix(gccm)
 fig4f
+ggplot2::ggsave('./Case of residential crime study/fig4f.png',
+                fig4f, width = 3.65, height = 4.05, dpi = 300)
 
 #------------------------------------------------------------------------------#
 #---------------------------      Figure 4g       -----------------------------#
 #------------------------------------------------------------------------------#
 
+gccm = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
+                        sheet = "gccm")
+fig4g = plot_cs_matrix(gccm)
+fig4g
+ggplot2::ggsave('./Case of residential crime study/fig4g.png',
+                fig4g, width = 3.65, height = 4.05, dpi = 300)
+
+#------------------------------------------------------------------------------#
+#---------------------------      Figure 4h       -----------------------------#
+#------------------------------------------------------------------------------#
+
 gcmc = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
                          sheet = "gcmc")
-fig4g = plot_cs_matrix(gcmc)
-fig4g
+fig4h = plot_cs_matrix(gcmc)
+fig4h
+ggplot2::ggsave('./Case of residential crime study/fig4h.png',
+                fig4h, width = 3.65, height = 4.05, dpi = 300)
