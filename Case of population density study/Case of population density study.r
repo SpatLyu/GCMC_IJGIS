@@ -105,8 +105,8 @@ case2 = list(
   gccm = readr::read_rds("./Case of population density study/gccm_case2.rds") |> 
     purrr::map(.process_xmap_result,gcmc = FALSE) |> 
     purrr::list_rbind(),
-  pcc = readr::read_rds("./Case of population density study/pcc_case2.rds") |>
-    .process_pcc_result(),
+  pcc = readr::read_rds("./Case of population density study/pcc_case2.rds")[c("r","p")] |>
+    .convert_result_list2df(),
   directlingam = readr::read_rds("./Case of population density study/directlingam_case2.rds") |>
     .convert_result_list2df(),
   gd = readr::read_rds("./Case of population density study/gd_case2.rds") |>
