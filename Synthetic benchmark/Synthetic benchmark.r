@@ -39,35 +39,10 @@ species = sim_trispecies(20,20, seed = 42)
 names(species) = letters[1:3]
 terra::plot(species,nc = 3)
 
-#-----------------------------------------------------------------------------#
-#------                        Baseline scenario                        ------#
-#-----------------------------------------------------------------------------#
-
 s_val = terra::values(species)
 stats::cor.test(s_val[,"a"],s_val[,"b"])
 stats::cor.test(s_val[,"a"],s_val[,"c"])
 stats::cor.test(s_val[,"b"],s_val[,"c"])
-
-# spEDM::fnn(species, "a", E = 1:25, 
-#            eps = stats::sd(terra::values(species[["a"]]), na.rm = TRUE))
-# spEDM::fnn(species, "b", E = 1:25, 
-#            eps = stats::sd(terra::values(species[["b"]]), na.rm = TRUE))
-# spEDM::fnn(species, "c", E = 1:25, 
-#            eps = stats::sd(terra::values(species[["c"]]), na.rm = TRUE))
-# 
-# g1 = spEDM::gcmc(species, "a", "b", E = 6, k = 120)
-# g1
-# g1$xmap
-# 
-# g2 = spEDM::gcmc(species, "b", "c", E = 6, k = 120)
-# g2
-# g2$xmap
-# 
-# g3 = spEDM::gcmc(species, "a", "c", E = 6, k = 120)
-# g3
-# g3$xmap
-# 
-# s0 = list(g1,g2,g3)
 
 #-----------------------------------------------------------------------------#
 #------                        Scenario 1: a→b→c                        ------#
