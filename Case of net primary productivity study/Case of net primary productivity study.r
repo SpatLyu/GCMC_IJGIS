@@ -84,6 +84,15 @@ pcc = psych::corr.test(npp.df)
 pcc
 readr::write_rds(pcc,'./Case of net primary productivity study/pcc_case3.rds')
 
+#-----------------------------------------------------------------------------#
+#------                  Causation by Direct LiNGAM                     ------#
+#-----------------------------------------------------------------------------#
+
+source('./Utils/directlingam_cf.r')
+
+directlingam = run_directlingam(npp.df)
+readr::write_rds(directlingam,'./Case of net primary productivity study/directlingam_case3.rds')
+
 #------------------------------------------------------------------------------#
 #------            Association by Geographical Detector (GD)             ------#
 #------------------------------------------------------------------------------#
@@ -112,6 +121,8 @@ case3 = list(
     purrr::list_rbind(),
   pcc = readr::read_rds("./Case of net primary productivity study/pcc_case3.rds") |>
     .process_pcc_result(),
+  directlingam = readr::read_rds("./Case of net primary productivity study/directlingam_case3.rds") |>
+    .convert_result_list2df(),
   gd = readr::read_rds("./Case of net primary productivity study/gd_case3.rds") |>
     dplyr::select(cause = x, effect = y, cs = qv, sig)
 )
