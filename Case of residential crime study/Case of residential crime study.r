@@ -57,7 +57,7 @@ gccm_case1 = list(g1,g2,g3)
 readr::write_rds(gccm_case1,'./Case of residential crime study/gccm_case1.rds')
 
 #------------------------------------------------------------------------------#
-#------        Correlation by Pearson Correlation Coefficient(PCC)       ------#
+#------       Correlation by Pearson Correlation Coefficient (PCC)       ------#
 #------------------------------------------------------------------------------#
 
 columdf = sf::st_drop_geometry(dplyr::select(columbus,c(hoval,inc,crime)))
@@ -66,7 +66,7 @@ pcc
 readr::write_rds(pcc,'./Case of residential crime study/pcc_case1.rds')
 
 #------------------------------------------------------------------------------#
-#------             Association by Geographical Detector(GD)             ------#
+#------            Association by Geographical Detector (GD)             ------#
 #------------------------------------------------------------------------------#
 
 source('./Utils/ssh_q.r')
