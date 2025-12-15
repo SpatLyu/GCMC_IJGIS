@@ -119,8 +119,8 @@ case3 = list(
   gccm = readr::read_rds("./Case of net primary productivity study/gccm_case3.rds") |> 
     purrr::map(.process_xmap_result,gcmc = FALSE) |> 
     purrr::list_rbind(),
-  pcc = readr::read_rds("./Case of net primary productivity study/pcc_case3.rds") |>
-    .process_pcc_result(),
+  pcc = readr::read_rds("./Case of net primary productivity study/pcc_case3.rds")[c("r","p")] |>
+    .convert_result_list2df(),
   directlingam = readr::read_rds("./Case of net primary productivity study/directlingam_case3.rds") |>
     .convert_result_list2df(),
   gd = readr::read_rds("./Case of net primary productivity study/gd_case3.rds") |>
