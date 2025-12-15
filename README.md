@@ -70,7 +70,7 @@ Please install the following packages before running the scripts:
 install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr", "tidyr", "tibble", "ggplot2"))
 devtools::install_github("ricardo-bion/ggradar", dependencies = TRUE)
 install.packages(c("sf", "terra", "tmap", "sdsfun", "gdverse"))
-install.packages("spEDM")
+install.packages("spEDM", dep = TRUE)
 ```
 
 ## Reproducibility Workflows
