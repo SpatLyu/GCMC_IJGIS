@@ -136,9 +136,9 @@ ggplot2::ggsave('./Case of residential crime study/fig4e.png',
 #---------------------------      Figure 4f       -----------------------------#
 #------------------------------------------------------------------------------#
 
-gccm = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
-                        sheet = "directlingam")
-fig4f = plot_cs_matrix(gccm)
+directlingam = readxl::read_xlsx("./Case of residential crime study/Case of residential crime study.xlsx",
+                                 sheet = "directlingam")
+fig4f = plot_cs_matrix(directlingam)
 fig4f
 ggplot2::ggsave('./Case of residential crime study/fig4f.png',
                 fig4f, width = 3.65, height = 4.05, dpi = 300)
