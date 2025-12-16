@@ -96,6 +96,25 @@ plot3D::scatter3D(My[,3], My[,6], My[,9],
                   theta = 10, phi = 0, cex = 0.25, bty = "n")
 dev.off()
 
+# --- Demonstration of Intersectional Cardinality ---
+
+plot3D::lines3D(Mx[,3], Mx[,6], Mx[,9],
+                colvar = NULL, pch = 19, col = "#fabcbd",
+                theta = 10, phi = 0, lwd = 0.45, bty = "n")
+
+plot3D::scatter3D(Mx[1,3], Mx[1,6], Mx[1,9],
+                colvar = NULL, pch = 19, col = "#f03e41ff",
+                theta = 10, phi = 0, cex = 0.45, bty = "n", add = TRUE)
+
+plot3D::scatter3D(Mx[20:100,3], Mx[20:100,6], Mx[20:100,9],
+                colvar = NULL, pch = 19, col = "#f07e80ff",
+                theta = 10, phi = 0, cex = 0.45, bty = "n", add = TRUE)
+
+plot3D::lines3D(My[,3], My[,6], My[,9],
+                colvar = NULL, pch = 19, col = "#aec4ca",
+                theta = 10, phi = 0, lwd = 0.45, bty = "n")
+
+
 # --- Intersectional Cardinality curve for H0 and H1 hypothesis ---
 
 H1 = spEDM:::RcppIntersectionCardinality(Mx[,c(3,6,9)], My[,c(3,6,9)],
