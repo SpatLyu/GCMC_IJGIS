@@ -22,39 +22,76 @@ fLorenz = function(x, y, z, sigma = 10, rho = 28, beta = 8 / 3) {
 }
 
 # --- Simulate Lorenz ---
-lorenz = simulate_attractor(fLorenz, 0, 0.1, 0, steps = 12000)
+lorenz = simulate_attractor(fLorenz, 0, 0.1, 0, steps = 5000)
 
 # --- Plot M view ---
 
+plot3D::scatter3D(lorenz[, 1], lorenz[, 2], lorenz[, 3],
+                  colvar = NULL, pch = 19, col = "grey70",
+                  theta = 10, phi = 0, cex = 0.105, bty = "n")
+
 png("./Schematic diagram/M.png", width = 1600, height = 1600, res = 300, bg = "white")
-plot3D::lines3D(lorenz[,1], lorenz[,2], lorenz[,3], colvar = NULL, col = "#e6a922",
-                theta = 10, phi = 0, pch = 19, lwd = 1.25, bty = "n", axes = FALSE)
+
+plot3D::scatter3D(lorenz[, 1], lorenz[, 2], lorenz[, 3],
+                  colvar = NULL, pch = 19, col = "grey70",
+                  theta = 10, phi = 0, cex = 0.25, bty = "n")
+
+# set.seed(42)
+# clusters = kmeans(lorenz, centers = 2)$cluster
+
+# plot3D::scatter3D(lorenz[which(clusters == 1), 1], 
+#                   lorenz[which(clusters == 1), 2],
+#                   lorenz[which(clusters == 1), 3],
+#                   colvar = NULL, pch = 19, col = "#aec4ca",
+#                   theta = 10, phi = 0, cex = 0.25, bty = "n", add = TRUE)
+
+# plot3D::scatter3D(lorenz[which(clusters == 2), 1], 
+#                   lorenz[which(clusters == 2), 2],
+#                   lorenz[which(clusters == 2), 3],
+#                   colvar = NULL, pch = 19, col = "#fabcbd",
+#                   theta = 10, phi = 0, cex = 0.25, bty = "n", add = TRUE)
+
 dev.off()
 
 # --- Plot MX view ---
 
-Mx = tEDM::embedded(as.data.frame(lorenz),"x",E = 20,tau = 3)
+GenStateSpace = \(ts, E = 3, tau = 1) {
+  # Input validation
+  if (!is.numeric(ts)) {
+    stop("Time series must be numeric", call. = FALSE)
+  }
+  if (E < 2) {
+    stop("E must be an integer greater than 1", call. = FALSE)
+  }
+  if (tau < 1) {
+    stop("Time delay must be positive", call. = FALSE)
+  }
 
-png("./schematic/Mx.png", width = 1600, height = 1600, res = 300, bg = "transparent")
-plot3D::lines3D(Mx[,3], Mx[,6], Mx[,9], colvar = NULL, col = "#6faecb",
-                theta = 30, phi = 90, pch = 19, lwd = 1.25, bty = "n", axes = FALSE)
+  # Create embedding matrix
+  M = matrix(NA_real_, length(ts) - (E - 1) * tau , E)
+  for (i in 1:nrow(M)) {
+    M_vec = ts[seq(from = i, to = i + (E - 1) * tau, by = tau)]
+    if (!anyNA(M_vec)) {
+      M[i,] = M_vec
+    }
+  }
+  return(M)
+}
+
+Mx = GenStateSpace(lorenz[,"x"],E = 20,tau = 3)
+
+png("./Schematic diagram/Mx.png", width = 1600, height = 1600, res = 300, bg = "white")
+plot3D::scatter3D(Mx[,3], Mx[,6], Mx[,9],
+                  colvar = NULL, pch = 19, col = "#aec4ca",
+                  theta = 10, phi = 30, cex = 0.25, bty = "n")
 dev.off()
-
-# png("./schematic/Mx.png", width = 1600, height = 1600, res = 300, bg = "transparent")
-# plot3D::lines3D(lorenz[,1], lorenz[,2], lorenz[,3], colvar = NULL, col = "#6faecb",
-#                 theta = 15, phi = 75, pch = 19, lwd = 1.25, bty = "n", axes = FALSE)
-# dev.off()
 
 # --- Plot MY view ---
 
-My = tEDM::embedded(as.data.frame(lorenz),"y",E = 20,tau = 3)
+My = GenStateSpace(lorenz[,"y"],E = 20,tau = 3)
 
-png("./schematic/My.png", width = 1600, height = 1600, res = 300, bg = "transparent")
-plot3D::lines3D(My[,3], My[,6], My[,9], colvar = NULL, col = "#fb9f4b",
-                theta = 30, phi = 90, pch = 19, lwd = 1.25, bty = "n", axes = FALSE)
+png("./Schematic diagram/My.png", width = 1600, height = 1600, res = 300, bg = "white")
+plot3D::scatter3D(My[,3], My[,6], My[,9],
+                  colvar = NULL, pch = 19, col = "#fabcbd",
+                  theta = 10, phi = 30, cex = 0.25, bty = "n")
 dev.off()
-
-# png("./schematic/My.png", width = 1600, height = 1600, res = 300, bg = "transparent")
-# plot3D::lines3D(lorenz[,1], lorenz[,2], lorenz[,3], colvar = NULL, col = "#fb9f4b",
-#                 theta = 35, phi = -95, pch = 19, lwd = 1.25, bty = "n", axes = FALSE)
-# dev.off()
