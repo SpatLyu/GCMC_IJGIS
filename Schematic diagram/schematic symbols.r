@@ -82,8 +82,8 @@ Mx = GenStateSpace(lorenz[,"x"],E = 20,tau = 3)
 
 png("./Schematic diagram/Mx.png", width = 1600, height = 1600, res = 300, bg = "white")
 plot3D::scatter3D(Mx[,3], Mx[,6], Mx[,9],
-                  colvar = NULL, pch = 19, col = "#aec4ca",
-                  theta = 10, phi = 30, cex = 0.25, bty = "n")
+                  colvar = NULL, pch = 19, col = "#fabcbd",
+                  theta = 10, phi = 0, cex = 0.25, bty = "n")
 dev.off()
 
 # --- Plot MY view ---
@@ -92,6 +92,6 @@ My = GenStateSpace(lorenz[,"y"],E = 20,tau = 3)
 
 png("./Schematic diagram/My.png", width = 1600, height = 1600, res = 300, bg = "white")
 plot3D::scatter3D(My[,3], My[,6], My[,9],
-                  colvar = NULL, pch = 19, col = "#fabcbd",
-                  theta = 10, phi = 30, cex = 0.25, bty = "n")
+                  colvar = NULL, pch = 19, col = "#aec4ca",
+                  theta = 10, phi = 0, cex = 0.25, bty = "n")
 dev.off()
