@@ -9,7 +9,7 @@ Dy = spEDM:::RcppMatDistance(My,L1norm = FALSE,NA_rm = TRUE)
 NNx = order(Dx[1,])[2:150]
 NNy = order(Dy[1,])[2:150]
 NNyp = unique(unlist(purrr::map(NNx,\(.idx) order(Dy[.idx,])[2:150])))
-# sum(NNx %in% NNy) / length(NNx)
+# sum(NNyp %in% NNy) / length(NNy)
 
 NNx_range = apply(Mx[NNx,],2,range)
 NNy_range = apply(My[NNy,],2,range)
@@ -125,7 +125,7 @@ plot3D::lines3D(My[,1], My[,2], My[,3],
                 colvar = NULL, pch = 19, col = "grey70",
                 theta = 10, phi = 0, lwd = 0.35, bty = "n")
 
-plot3D::scatter3D(My[NNy,1], My[NNy,2], My[NNy,3],
+plot3D::scatter3D(My[NNyp,1], My[NNyp,2], My[NNyp,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
@@ -143,15 +143,15 @@ dev.off()
 
 png("./Schematic diagram/IC.png", width = 1600, height = 1600, res = 300, bg = "white")
 
-plot3D::lines3D(Mx[,1], Mx[,2], Mx[,3],
+plot3D::lines3D(My[,1], My[,2], My[,3],
                 colvar = NULL, pch = 19, col = "grey70",
                 theta = 10, phi = 0, lwd = 0.25, bty = "n")
 
-plot3D::scatter3D(Mx[NNy,1], Mx[NNy,2], Mx[NNy,3],
+plot3D::scatter3D(My[NNy,1], My[NNy,2], My[NNy,3],
                   colvar = NULL, pch = 19, col = "#8bb9f5ff",
                   theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
 
-plot3D::scatter3D(Mx[NNx,1], Mx[NNx,2], Mx[NNx,3],
+plot3D::scatter3D(My[NNx,1], My[NNx,2], My[NNx,3],
                   colvar = NULL, pch = 19, col = "#fabcbd",
                   theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
 
@@ -159,21 +159,21 @@ dev.off()
 
 png("./Schematic diagram/IC_local.png", width = 1600, height = 1600, res = 300, bg = "white")
 
-plot3D::lines3D(Mx[,1], Mx[,2], Mx[,3],
+plot3D::lines3D(My[,1], My[,2], My[,3],
                 xlim = NN_range,
                 ylim = NN_range,
                 zlim = NN_range,
                 colvar = NULL, pch = 19, col = "grey70",
                 theta = 10, phi = 0, lwd = 0.35, bty = "n")
 
-plot3D::scatter3D(Mx[NNy,1], Mx[NNy,2], Mx[NNy,3],
+plot3D::scatter3D(My[NNy,1], My[NNy,2], My[NNy,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#8bb9f5ff",
                   theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
 
-plot3D::scatter3D(Mx[NNx,1], Mx[NNx,2], Mx[NNx,3],
+plot3D::scatter3D(My[NNx,1], My[NNx,2], My[NNx,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
