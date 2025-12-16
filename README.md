@@ -67,8 +67,8 @@ The folder is organized by case studies and corresponding figures:
 Please install the following packages before running the scripts:
 
 ```r
-install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr",   
-                   "tidyr", "tibble", "ggplot2", "latex2exp","sf", "terra", "tmap", "sdsfun", "gdverse"))
+install.packages(c("readxl", "writexl", "readr", "dplyr", "purrr",    
+                   "tidyr", "tibble", "ggplot2", "scatterplot3d","latex2exp", "sf", "terra", "tmap", "gdverse"))
 devtools::install_github("ricardo-bion/ggradar", dependencies = TRUE)
 install.packages("spEDM", dep = TRUE)
 ```
