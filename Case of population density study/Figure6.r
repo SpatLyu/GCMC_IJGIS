@@ -1,7 +1,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~                  Figure 5                ~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~                  Figure 6                ~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -9,56 +9,56 @@
 source('./Utils/plot_cs_matrix.r')
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 5a       -----------------------------#
+#---------------------------      Figure 6a       -----------------------------#
 #------------------------------------------------------------------------------#
 
 pcc = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                         sheet = "pcc")
-fig5a = plot_cs_matrix(pcc)
-fig5a
-ggplot2::ggsave('./Case of population density study/fig5a.png',
-                fig5a, width = 3.65, height = 4.05, dpi = 300)
+fig6a = plot_cs_matrix(pcc)
+fig6a
+ggplot2::ggsave('./Case of population density study/fig6a.png',
+                fig6a, width = 3.65, height = 4.05, dpi = 300)
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 5b       -----------------------------#
+#---------------------------      Figure 6b       -----------------------------#
 #------------------------------------------------------------------------------#
 
 gd = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                        sheet = "gd")
-fig5b = plot_cs_matrix(gd)
-fig5b
-ggplot2::ggsave('./Case of population density study/fig5b.png',
-                fig5b, width = 3.65, height = 4.05, dpi = 300)
+fig6b = plot_cs_matrix(gd)
+fig6b
+ggplot2::ggsave('./Case of population density study/fig6b.png',
+                fig6b, width = 3.65, height = 4.05, dpi = 300)
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 5c       -----------------------------#
+#---------------------------      Figure 6c       -----------------------------#
 #------------------------------------------------------------------------------#
 
 directlingam = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                                  sheet = "directlingam")
-fig5c = plot_cs_matrix(directlingam)
-fig5c
-ggplot2::ggsave('./Case of population density study/fig5c.png',
-                fig5c, width = 3.65, height = 4.05, dpi = 300)
+fig6c = plot_cs_matrix(directlingam)
+fig6c
+ggplot2::ggsave('./Case of population density study/fig6c.png',
+                fig6c, width = 3.65, height = 4.05, dpi = 300)
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 5d       -----------------------------#
+#---------------------------      Figure 6d       -----------------------------#
 #------------------------------------------------------------------------------#
 
 gccm = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                          sheet = "gccm")
-fig5d = plot_cs_matrix(gccm)
-fig5d
-ggplot2::ggsave('./Case of population density study/fig5d.png',
-                fig5d, width = 3.65, height = 4.05, dpi = 300)
+fig6d = plot_cs_matrix(gccm)
+fig6d
+ggplot2::ggsave('./Case of population density study/fig6d.png',
+                fig6d, width = 3.65, height = 4.05, dpi = 300)
 
 #------------------------------------------------------------------------------#
-#---------------------------      Figure 5e       -----------------------------#
+#---------------------------      Figure 6e       -----------------------------#
 #------------------------------------------------------------------------------#
 
 gcmc = readxl::read_xlsx("./Case of population density study/Case of population density study.xlsx",
                          sheet = "gcmc")
-fig5e = plot_cs_matrix(gcmc)
-fig5e
-ggplot2::ggsave('./Case of population density study/fig5e.png',
-                fig5e, width = 3.65, height = 4.05, dpi = 300)
+fig6e = plot_cs_matrix(gcmc)
+fig6e
+ggplot2::ggsave('./Case of population density study/fig6e.png',
+                fig6e, width = 3.65, height = 4.05, dpi = 300)
