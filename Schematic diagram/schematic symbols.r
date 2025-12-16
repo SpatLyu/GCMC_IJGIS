@@ -105,36 +105,3 @@ readr::write_csv(Mx, './Schematic diagram/Mx.csv')
 My = as.data.frame(My[,c(3,6,9)])
 names(My) = c("x","y","z")
 readr::write_csv(My, './Schematic diagram/My.csv')
-
-# --- Demonstration of Intersectional Cardinality ---
-
-NNx = order(spEDM:::RcppMatDistance(Mx[,c(3,6,9)],L1norm = FALSE,NA_rm = TRUE)[1,])[2:100]
-
-plot3D::lines3D(Mx[,3], Mx[,6], Mx[,9],
-                colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.15, bty = "n")
-
-plot3D::scatter3D(Mx[1,3], Mx[1,6], Mx[1,9],
-                colvar = NULL, pch = 19, col = "#f03e41ff",
-                theta = 10, phi = 0, cex = 0.45, bty = "n", add = TRUE)
-
-plot3D::scatter3D(Mx[NNx,3], Mx[NNx,6], Mx[NNx,9],
-                colvar = NULL, pch = 19, col = "#fabcbd",
-                theta = 10, phi = 0, cex = 0.05, bty = "n", add = TRUE)
-
-
-plot3D::lines3D(My[,3], My[,6], My[,9],
-                colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.15, bty = "n")
-
-plot3D::scatter3D(My[1,3], My[1,6], My[1,9],
-                colvar = NULL, pch = 19, col = "#08c4f8ff",
-                theta = 10, phi = 0, cex = 0.45, bty = "n", add = TRUE)
-
-plot3D::scatter3D(Mx[NNx,3], Mx[NNx,6], Mx[NNx,9],
-                colvar = NULL, pch = 19, col = "#b8ecfaff",
-                theta = 10, phi = 0, cex = 0.05, bty = "n", add = TRUE)
-
-plot3D::lines3D(My[,3], My[,6], My[,9],
-                colvar = NULL, pch = 19, col = "#aec4ca",
-                theta = 10, phi = 0, lwd = 0.45, bty = "n")
