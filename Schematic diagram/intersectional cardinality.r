@@ -20,11 +20,28 @@ plot3D::scatter3D(Mx[NNx,1], Mx[NNx,2], Mx[NNx,3],
                 theta = 10, phi = 0, cex = 0.25, bty = "n", add = TRUE)
 
 plot3D::scatter3D(Mx[1,1], Mx[1,2], Mx[1,3],
-                colvar = NULL, pch = 19, col = "#f03e41ff",
-                theta = 10, phi = 0, cex = 0.55, bty = "n", add = TRUE)
+                  colvar = NULL, pch = 19, col = "#f03e41ff",
+                  theta = 10, phi = 0, cex = 0.55, bty = "n", add = TRUE)
 
 dev.off()
 
+png("./Schematic diagram/NNx_local.png", width = 1600, height = 1600, res = 300, bg = "white")
+
+plot3D::lines3D(Mx[,1], Mx[,2], Mx[,3],
+                colvar = NULL, pch = 19, col = "grey70",
+                theta = 10, phi = 0, lwd = 0.25, bty = "n")
+
+plot3D::scatter3D(Mx[NNx,1], Mx[NNx,2], Mx[NNx,3],
+                colvar = NULL, pch = 19, col = "#fabcbd",
+                theta = 10, phi = 0, cex = 0.25, bty = "n", add = TRUE)
+
+plot3D::scatter3D(Mx[1,1], Mx[1,2], Mx[1,3],
+                  colvar = NULL, pch = 19, col = "#f03e41ff",
+                  theta = 10, phi = 0, cex = 0.55, bty = "n", add = TRUE)
+
+dev.off()
+
+apply(Mx[NNx,],2,range)
 
 png("./Schematic diagram/NNy.png", width = 1600, height = 1600, res = 300, bg = "white")
 
