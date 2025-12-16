@@ -96,7 +96,7 @@ plot3D::scatter3D(My[,3], My[,6], My[,9],
                   theta = 10, phi = 0, cex = 0.25, bty = "n")
 dev.off()
 
-# intersectional cardinality curve for H0 and H1 hypothesis
+# --- Intersectional Cardinality curve for H0 and H1 hypothesis ---
 
 H1 = spEDM:::RcppIntersectionCardinality(Mx[,c(3,6,9)], My[,c(3,6,9)],
                                          1:nrow(Mx), 1:nrow(Mx),
