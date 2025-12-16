@@ -105,27 +105,36 @@ plot3D::lines3D(My[,1], My[,2], My[,3],
                 theta = 10, phi = 0, lwd = 0.15, bty = "n")
 
 plot3D::scatter3D(Mx[NNy,1], Mx[NNy,2], Mx[NNy,3],
-                colvar = NULL, pch = 19, col = "#627b9cff",
-                theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
+                  colvar = NULL, pch = 19, col = "#627b9cff",
+                  theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
-                colvar = NULL, pch = 19, col = "#055ad0ff",
-                theta = 10, phi = 0, cex = 0.55, bty = "n", add = TRUE)
+                  colvar = NULL, pch = 19, col = "#055ad0ff",
+                  theta = 10, phi = 0, cex = 0.55, bty = "n", add = TRUE)
 
 dev.off()
 
-png("./Schematic diagram/NNy_projected.png", width = 1600, height = 1600, res = 300, bg = "white")
+png("./Schematic diagram/NNy_projected_local.png", width = 1600, height = 1600, res = 300, bg = "white")
 
 plot3D::lines3D(My[,1], My[,2], My[,3],
+                xlim = NN_range,
+                ylim = NN_range,
+                zlim = NN_range,
                 colvar = NULL, pch = 19, col = "grey70",
                 theta = 10, phi = 0, lwd = 0.15, bty = "n")
 
 plot3D::scatter3D(Mx[NNy,1], Mx[NNy,2], Mx[NNy,3],
-                colvar = NULL, pch = 19, col = "#627b9cff",
-                theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
+                  xlim = NN_range,
+                  ylim = NN_range,
+                  zlim = NN_range,
+                  colvar = NULL, pch = 19, col = "#627b9cff",
+                  theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
-                colvar = NULL, pch = 19, col = "#055ad0ff",
-                theta = 10, phi = 0, cex = 0.55, bty = "n", add = TRUE)
+                  xlim = NN_range,
+                  ylim = NN_range,
+                  zlim = NN_range,
+                  colvar = NULL, pch = 19, col = "#055ad0ff",
+                  theta = 10, phi = 0, cex = 0.55, bty = "n", add = TRUE)
 
 dev.off()
