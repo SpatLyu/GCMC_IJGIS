@@ -107,7 +107,7 @@ plot3D::lines3D(My[,1], My[,2], My[,3],
 
 plot3D::scatter3D(My[NNy,1], My[NNy,2], My[NNy,3],
                   colvar = NULL, pch = 19, col = "#627b9cff",
-                  theta = 10, phi = 0, cex = 0.05, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
                   colvar = NULL, pch = 19, col = "#055ad0ff",
