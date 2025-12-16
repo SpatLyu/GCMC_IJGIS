@@ -1,22 +1,4 @@
-library(sf)
-library(tmap)
-
-# henan = cnmap::getMap(code = "410000", subRegion = TRUE) |> 
-#   dplyr::select(adcode,name)
-
-cn = dplyr::select(sf::st_make_valid(mapchina::china),
-                   Code = Code_Perfecture,
-                   Pop = Pop_2010,Area) |> 
-  dplyr::group_by(Code) |> 
-  dplyr::summarise(geometry = sf::st_union(geometry) |> 
-                     sf::st_cast("MULTIPOLYGON"),
-                   Pop = sum(Pop,na.rm = TRUE),
-                   Area = sum(Area,na.rm = TRUE)) |> 
-  dplyr::mutate(popdensity = round(Pop / Area,0))
-henan = cn |> 
-  dplyr::filter(stringr::str_detect(Code, "^41.{2}$")) |> 
-  dplyr::select(Code,popdensity) |> 
-  tibble::rowid_to_column(var = "rid")
+henan = sf::read_sf('./Spatial embedding/henan.geojson')
 
 # bb = henan |> 
 #   st_bbox() |>
@@ -28,8 +10,8 @@ henan = cn |>
 
 nb = sdsfun::spdep_nb(henan)
 
-# Selected spatial unit for illustrative calculation
-mapview::mapview(henan,zcol = "Code")
+# Selected spatial unit for illustrative calculation 
+plot(henan[,"Code"])
 henan[henan$Code == "4110",]
 
 spunit = list()
@@ -49,6 +31,8 @@ henan = henan |>
                                 labels = c("Focal Unit",
                                            paste0(c("First","Second","Third"),
                                                   "-order Lags"))))
+
+library(tmap)
 
 fig11 = tm_shape(henan) + 
   tm_polygons(fill = "lagnum",
@@ -71,9 +55,10 @@ fig11 = tm_shape(henan) +
   tm_text("popdensity",size = 1.05, # angle = 5,
           options = opt_tm_text(just = "top",on_surface = TRUE)) +
   tm_layout(frame = FALSE)
-tmap_save(fig11,'./figure/figure1_1.jpg',dpi = 300)
+fig11
+tmap_save(fig11,"./Spatial embedding/figure1_1.png",dpi = 300)
 
-# jpeg("./figure/figure1_2.jpg", width = 1500, height = 1500, res = 300)  
+# png('./Spatial embedding/figure1_1.png', width = 1500, height = 1500, res = 300)  
 # par(mar = rep(0,4))
 # plot(sf::st_geometry(henan), col = 'white', lwd = 1.25, border = "grey40")
 # plot(nb,coords = sdsfun::sf_coordinates(henan), lwd=1.05, col="blue", cex = 1.25, add = TRUE)
@@ -81,14 +66,13 @@ tmap_save(fig11,'./figure/figure1_1.jpg',dpi = 300)
 
 embeddings = spEDM::embedded(henan, target = "popdensity", E = 3, tau = 1)
 colnames(embeddings) = c("hs1","hs2","hs3")
-# readr::write_csv(as.data.frame(embeddings),'./result/figure1_embeddings.csv')
 embeddings[10,1:3]
 
 henan$popdensity[spunit[[1]]] / 5
 henan$popdensity[spunit[[2]]] / 6
 henan$popdensity[spunit[[3]]] / 6
 
-jpeg("./figure/figure1_2.jpg", width = 1800, height = 1500, res = 300)
+png("./Spatial embedding/figure1_2.png", width = 1800, height = 1500, res = 300)
 par(mar = rep(0,4))
 scatterplot3d::scatterplot3d(x = embeddings[,1], y = embeddings[,2], z = embeddings[,3],
                              xlab = latex2exp::TeX("$h_{s(1)}(x)$"),
@@ -96,4 +80,3 @@ scatterplot3d::scatterplot3d(x = embeddings[,1], y = embeddings[,2], z = embeddi
                              zlab = latex2exp::TeX("$h_{s(3)}(x)$"),
                              pch = 16, color="red", angle = 45)
 dev.off()
-
