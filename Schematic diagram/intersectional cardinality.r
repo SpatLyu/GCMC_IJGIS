@@ -8,6 +8,7 @@ Dy = spEDM:::RcppMatDistance(My,L1norm = FALSE,NA_rm = TRUE)
 
 NNx = order(Dx[1,])[2:150]
 NNy = unique(unlist(purrr::map(NNx,\(.idx) order(Dy[.idx,])[2:150])))
+# sum(NNx %in% NNy) / length(NNx)
 
 NNx_range = apply(Mx[NNx,],2,range)
 NNy_range = apply(My[NNx,],2,range)
@@ -53,7 +54,7 @@ plot3D::scatter3D(Mx[1,1], Mx[1,2], Mx[1,3],
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#f03e41ff",
-                  theta = 10, phi = 0, cex = 0.75, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.95, bty = "n", add = TRUE)
 
 dev.off()
 
@@ -80,21 +81,21 @@ plot3D::lines3D(My[,1], My[,2], My[,3],
                 ylim = NN_range,
                 zlim = NN_range,
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 30, lwd = 0.35, bty = "n")
+                theta = 10, phi = 0, lwd = 0.35, bty = "n")
 
 plot3D::scatter3D(My[NNx,1], My[NNx,2], My[NNx,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#627b9cff",
-                  theta = 10, phi = 30, cex = 0.35, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#055ad0ff",
-                  theta = 10, phi = 30, cex = 0.75, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.95, bty = "n", add = TRUE)
 
 dev.off()
 
@@ -135,6 +136,6 @@ plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#055ad0ff",
-                  theta = 10, phi = 0, cex = 0.85, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.95, bty = "n", add = TRUE)
 
 dev.off()
