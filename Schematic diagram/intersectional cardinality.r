@@ -22,7 +22,7 @@ png("./Schematic diagram/NNx.png", width = 1600, height = 1600, res = 300, bg = 
 
 plot3D::lines3D(Mx[,1], Mx[,2], Mx[,3],
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.25, bty = "n")
+                theta = 10, phi = 0, lwd = 0.75, bty = "n")
 
 plot3D::scatter3D(Mx[NNx,1], Mx[NNx,2], Mx[NNx,3],
                   colvar = NULL, pch = 19, col = "#fabcbd",
@@ -30,7 +30,7 @@ plot3D::scatter3D(Mx[NNx,1], Mx[NNx,2], Mx[NNx,3],
 
 plot3D::scatter3D(Mx[1,1], Mx[1,2], Mx[1,3],
                   colvar = NULL, pch = 19, col = "#f03e41ff",
-                  theta = 10, phi = 0, cex = 0.55, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.45, bty = "n", add = TRUE)
 
 dev.off()
 
@@ -41,21 +41,21 @@ plot3D::lines3D(Mx[,1], Mx[,2], Mx[,3],
                 ylim = NN_range,
                 zlim = NN_range,
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.35, bty = "n")
+                theta = 10, phi = 0, lwd = 1.05, bty = "n")
 
 plot3D::scatter3D(Mx[NNx,1], Mx[NNx,2], Mx[NNx,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#fabcbd",
-                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.75, bty = "n", add = TRUE)
 
 plot3D::scatter3D(Mx[1,1], Mx[1,2], Mx[1,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#f03e41ff",
-                  theta = 10, phi = 0, cex = 0.95, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 1.55, bty = "n", add = TRUE)
 
 dev.off()
 
@@ -63,11 +63,11 @@ png("./Schematic diagram/NNy.png", width = 1600, height = 1600, res = 300, bg = 
 
 plot3D::lines3D(My[,1], My[,2], My[,3],
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.15, bty = "n")
+                theta = 10, phi = 0, lwd = 0.75, bty = "n")
 
 plot3D::scatter3D(My[NNy,1], My[NNy,2], My[NNy,3],
                   colvar = NULL, pch = 19, col = "#8bb9f5ff",
-                  theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
                   colvar = NULL, pch = 19, col = "#055ad0ff",
@@ -82,21 +82,21 @@ plot3D::lines3D(My[,1], My[,2], My[,3],
                 ylim = NN_range,
                 zlim = NN_range,
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.35, bty = "n")
+                theta = 10, phi = 0, lwd = 1.05, bty = "n")
 
 plot3D::scatter3D(My[NNy,1], My[NNy,2], My[NNy,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#8bb9f5ff",
-                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.75, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#055ad0ff",
-                  theta = 10, phi = 0, cex = 0.95, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 1.55, bty = "n", add = TRUE)
 
 dev.off()
 
@@ -104,11 +104,11 @@ png("./Schematic diagram/NNyp.png", width = 1600, height = 1600, res = 300, bg =
 
 plot3D::lines3D(My[,1], My[,2], My[,3],
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.15, bty = "n")
+                theta = 10, phi = 0, lwd = 0.75, bty = "n")
 
 plot3D::scatter3D(My[NNyp,1], My[NNyp,2], My[NNyp,3],
                   colvar = NULL, pch = 19, col = "#8bb9f5ff",
-                  theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
                   colvar = NULL, pch = 19, col = "#055ad0ff",
@@ -123,21 +123,21 @@ plot3D::lines3D(My[,1], My[,2], My[,3],
                 ylim = NN_range,
                 zlim = NN_range,
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.35, bty = "n")
+                theta = 10, phi = 0, lwd = 1.05, bty = "n")
 
 plot3D::scatter3D(My[NNyp,1], My[NNyp,2], My[NNyp,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#8bb9f5ff",
-                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.75, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[1,1], My[1,2], My[1,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#055ad0ff",
-                  theta = 10, phi = 0, cex = 0.95, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 1.55, bty = "n", add = TRUE)
 
 dev.off()
 
@@ -145,15 +145,15 @@ png("./Schematic diagram/IC.png", width = 1600, height = 1600, res = 300, bg = "
 
 plot3D::lines3D(My[,1], My[,2], My[,3],
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.25, bty = "n")
+                theta = 10, phi = 0, lwd = 0.75, bty = "n")
 
 plot3D::scatter3D(My[NNyp,1], My[NNyp,2], My[NNyp,3],
                   colvar = NULL, pch = 19, col = "#fabcbd",
-                  theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[NNy,1], My[NNy,2], My[NNy,3],
                   colvar = NULL, pch = 19, col = "#8bb9f5ff",
-                  theta = 10, phi = 0, cex = 0.15, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
 
 dev.off()
 
@@ -164,20 +164,20 @@ plot3D::lines3D(My[,1], My[,2], My[,3],
                 ylim = NN_range,
                 zlim = NN_range,
                 colvar = NULL, pch = 19, col = "grey70",
-                theta = 10, phi = 0, lwd = 0.35, bty = "n")
+                theta = 10, phi = 0, lwd = 1.05, bty = "n")
 
 plot3D::scatter3D(My[NNyp,1], My[NNyp,2], My[NNyp,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#fabcbd",
-                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.75, bty = "n", add = TRUE)
 
 plot3D::scatter3D(My[NNy,1], My[NNy,2], My[NNy,3],
                   xlim = NN_range,
                   ylim = NN_range,
                   zlim = NN_range,
                   colvar = NULL, pch = 19, col = "#8bb9f5ff",
-                  theta = 10, phi = 0, cex = 0.35, bty = "n", add = TRUE)
+                  theta = 10, phi = 0, cex = 0.75, bty = "n", add = TRUE)
 
 dev.off()
