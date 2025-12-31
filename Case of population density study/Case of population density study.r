@@ -19,24 +19,24 @@ popd_sf
 #------            Determining minimum embedding dimension              ------#
 #-----------------------------------------------------------------------------#
 
-spEDM::fnn(popd_sf, "popd", E = 1:15, eps = stats::sd(popd_sf$popd) / 10)
+spEDM::fnn(popd_sf, "popd", E = 1:15, eps = stats::sd(popd_sf$popd))
 
 #------------------------------------------------------------------------------#
 #------    Causation by Geographical Cross Mapping Cardinality (GCMC)    ------#
 #------------------------------------------------------------------------------#
 
-ceiling(sqrt(10 * nrow(popd_sf)))
+ceiling(sqrt(11 * nrow(popd_sf)))
 
 # temperature and population density
-g1 = gcmc(popd_sf, "tem", "popd", E = 10, k = 168, nb = popd_nb)
+g1 = gcmc(popd_sf, "tem", "popd", E = 11, k = 176, nb = popd_nb)
 g1
 
 # elevation and population density
-g2 = gcmc(popd_sf, "elev", "popd", E = 10, k = 168, nb = popd_nb)
+g2 = gcmc(popd_sf, "elev", "popd", E = 11, k = 176, nb = popd_nb)
 g2
 
 # elevation and temperature
-g3 = gcmc(popd_sf, "elev", "tem", E = 10, k = 168, nb = popd_nb)
+g3 = gcmc(popd_sf, "elev", "tem", E = 11, k = 176, nb = popd_nb)
 g3
 
 gcmc_case2 = list(g1,g2,g3)
@@ -47,15 +47,15 @@ readr::write_rds(gcmc_case2,'./Case of population density study/gcmc_case2.rds')
 #------------------------------------------------------------------------------#
 
 # temperature and population density
-g1 = gccm(popd_sf, "tem", "popd", E = 10, k = 12, nb = popd_nb)
+g1 = gccm(popd_sf, "tem", "popd", E = 11, k = 13, nb = popd_nb)
 g1
 
 # elevation and population density
-g2 = gccm(popd_sf, "elev", "popd", E = 10, k = 12, nb = popd_nb)
+g2 = gccm(popd_sf, "elev", "popd", E = 11, k = 13, nb = popd_nb)
 g2
 
 # elevation and temperature
-g3 = gccm(popd_sf, "elev", "tem", E = 10, k = 12, nb = popd_nb)
+g3 = gccm(popd_sf, "elev", "tem", E = 11, k = 13, nb = popd_nb)
 g3
 
 gccm_case2 = list(g1,g2,g3)

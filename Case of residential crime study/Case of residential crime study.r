@@ -14,7 +14,7 @@ columbus
 #------            Determining minimum embedding dimension              ------#
 #-----------------------------------------------------------------------------#
 
-spEDM::fnn(columbus, "hoval", E = 1:10, eps = stats::sd(columbus$hoval) / 10)
+spEDM::fnn(columbus, "hoval", E = 1:10)
 
 #------------------------------------------------------------------------------#
 #------    Causation by Geographical Cross Mapping Cardinality (GCMC)    ------#
