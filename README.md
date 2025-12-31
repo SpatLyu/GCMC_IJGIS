@@ -16,7 +16,7 @@ All reproduction workflows start from the **shared source data** in this reposit
 
 The code has been tested and verified in the following environment:
 
--   **Operating System**: Ubuntu 22.04\
+-   **Operating System**: Windows 11\
 -   **R version**: 4.4.3\
 -   **spEDM version**: 1.9
 
