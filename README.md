@@ -92,7 +92,7 @@ install.packages("spEDM", dep = TRUE)
 
 ------------------------------------------------------------------------
 
-### Synthetic Benchmark (Figure 3)
+### Synthetic Benchmark (Figure 4)
 
 **Workflow**:
 
@@ -109,7 +109,7 @@ source("Synthetic benchmark/Synthetic benchmark.r")
 
 ------------------------------------------------------------------------
 
-### Case Study 1: Residential Crime (Figure 4)
+### Case Study 1: Residential Crime (Figure 5)
 
 **Workflow**:
 
@@ -117,18 +117,18 @@ source("Synthetic benchmark/Synthetic benchmark.r")
 2.  Apply comparative models and our gcmc model.
 3.  Save model outputs (stored in `.rds` and `.xlsx`).
 4.  Compute assessment metrics (causal strength and significance).
-5.  Plot final results using `Figure4.r`.
+5.  Plot final results using `Figure5.r`.
 
 **Reproduce with**:
 
 ``` r
 source("Case of residential crime study/Case of residential crime study.r")
-source("Case of residential crime study/Figure4.r")
+source("Case of residential crime study/Figure5.r")
 ```
 
 ------------------------------------------------------------------------
 
-### Case Study 2: Population Density (Figure 5)
+### Case Study 2: Population Density (Figure 6)
 
 **Workflow**:
 
@@ -137,18 +137,18 @@ source("Case of residential crime study/Figure4.r")
 3.  Apply comparative models and our gcmc model.
 4.  Save model outputs.
 5.  Compute reported metrics.
-6.  Plot results using `Figure5.r`.
+6.  Plot results using `Figure6.r`.
 
 **Reproduce with**:
 
 ``` r
 source("Case of population density study/Case of population density study.r")
-source("Case of population density study/Figure5.r")
+source("Case of population density study/Figure6.r")
 ```
 
 ------------------------------------------------------------------------
 
-### Case Study 3: Net Primary Productivity (Figure 6)
+### Case Study 3: Net Primary Productivity (Figure 7)
 
 **Workflow**:
 
@@ -157,18 +157,18 @@ source("Case of population density study/Figure5.r")
 3.  Apply comparative models and our gcmc model.
 4.  Save outputs.
 5.  Compute performance metrics.
-6.  Plot results (Figure 6).
+6.  Plot results (Figure 7).
 
 **Reproduce with**:
 
 ``` r
 source("Case of net primary productivity study/Case of net primary productivity study.r")
-source("Case of net primary productivity study/Figure6.r")
+source("Case of net primary productivity study/Figure7.r")
 ```
 
 ------------------------------------------------------------------------
 
-### Sensitivity Analysis (Figure 7)
+### Sensitivity Analysis (Figure 8)
 
 **Workflow**:
 
@@ -182,7 +182,7 @@ source("Case of net primary productivity study/Figure6.r")
 
 ``` r
 source("Sensitivity analysis/Sensitivity analysis.r")
-source("Sensitivity analysis/Figure7.r")
+source("Sensitivity analysis/Figure8.r")
 ```
 
 ------------------------------------------------------------------------
