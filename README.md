@@ -4,12 +4,12 @@ This repository provides all the necessary materials to **fully reproduce all fi
 
 The materials cover: 
 
+- **Schematic Illustrations in Figures 1–3**
 - **Synthetic Benchmark Experiment (Figure 4)** 
 - **Case Study 1: Residential Crime (Figure 5)** 
 - **Case Study 2: Population Density (Figure 6)** 
 - **Case Study 3: Net Primary Productivity (Figure 7)** 
 - **Noise Sensitivity Analysis (Figure 8)**
-- **Schematic Illustrations in Figures 1–3**
 
 All reproduction workflows start from the **shared source data** in this repository and end with the **analysis/modeling outputs** and **visualizations** presented in the manuscript.
 
@@ -27,7 +27,22 @@ To ensure full reproducibility, it is recommended to match the environment above
 
 The folder is organized by case studies and corresponding figures:
 
-```         
+```
+├── Spatial embedding                       # Related to Figure 1
+│   |── spatial embedding.r
+│   ├── henan.geojson
+|   ├── *.png, *.pdf, etc.
+|
+├── Schematic diagram                       # Related to Figure 2,3
+│   ├── intersectional cardinality.r 
+│   |── schematic symbols.r
+│   ├── hypothesis.r
+|   ├── *.csv, *.png, *.pdf, etc.
+|
+├── Synthetic benchmark                     # Related to Figure 4
+│   ├── Synthetic benchmark.r
+|   ├── *.rds, *.pptx, *.pdf, etc.
+|
 ├── Case of residential crime study         # Related to Figure 5
 │   ├── Figure5.r
 │   ├── Case of residential crime study.r
@@ -52,10 +67,6 @@ The folder is organized by case studies and corresponding figures:
 │   ├── Sensitivity analysis.r
 │   ├── *.xlsx, *.png, *.pdf, etc.
 │
-├── Synthetic benchmark                     # Related to Figure 4
-│   ├── Synthetic benchmark.r
-|   ├── *.rds, *.pptx, *.pdf, etc.
-|
 ├── Utils
 │   ├── ssh_q.r
 │   ├── directlingam_cf.r
