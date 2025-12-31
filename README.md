@@ -28,36 +28,37 @@ To ensure full reproducibility, it is recommended to match the environment above
 The folder is organized by case studies and corresponding figures:
 
 ```         
-├── Case of residential crime study         # Related to Figure 4
-│   ├── Figure4.r
+├── Case of residential crime study         # Related to Figure 5
+│   ├── Figure5.r
 │   ├── Case of residential crime study.r
 │   ├── columbus.gpkg
-│   ├── *.rds, *.xlsx, etc.
+│   ├── *.rds, *.xlsx, *.png, *.pdf, etc.
 │
-├── Case of population density study        # Related to Figure 5
-│   ├── Figure5.r
+├── Case of population density study        # Related to Figure 6
+│   ├── Figure6.r
 │   ├── Case of population density study.r
 │   ├── popd.csv
 │   ├── popd_nb.gal
-│   ├── *.rds, *.xlsx, etc.
+│   ├── *.rds, *.xlsx, *.png, *.pdf, etc.
 │
-├── Case of net primary productivity study  # Related to Figure 6
-│   ├── Figure6.r
+├── Case of net primary productivity study  # Related to Figure 7
+│   ├── Figure7.r
 │   ├── Case of net primary productivity study.r
 │   ├── npp.tif
-│   ├── *.rds, *.xlsx, etc.
+│   ├── *.rds, *.xlsx, *.png, *.pdf, etc.
 │
-├── Sensitivity analysis                    # Related to Figure 7
-│   ├── Figure7.r
+├── Sensitivity analysis                    # Related to Figure 8
+│   ├── Figure8.r
 │   ├── Sensitivity analysis.r
-│   ├── *.xlsx, etc.
+│   ├── *.xlsx, *.png, *.pdf, etc.
 │
-├── Synthetic benchmark                     # Related to Figure 3
+├── Synthetic benchmark                     # Related to Figure 4
 │   ├── Synthetic benchmark.r
-|   ├── *.rds, etc.
+|   ├── *.rds, *.pptx, *.pdf, etc.
 |
 ├── Utils
 │   ├── ssh_q.r
+│   ├── directlingam_cf.r
 │   ├── process_results.r
 │   ├── plot_cs_matrix.r
 │
