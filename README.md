@@ -2,7 +2,12 @@
 
 This repository provides all the necessary materials to **fully reproduce all findings** (figures and assessment metrics) reported in the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.
 
-The materials cover: - **Synthetic Benchmark Experiment (Figure 3)** - **Case Study 1: Residential Crime (Figure 4)** - **Case Study 2: Population Density (Figure 5)** - **Case Study 3: Net Primary Productivity (Figure 6)** - **Noise Sensitivity Analysis (Figure 7)**
+The materials cover: 
+- **Synthetic Benchmark Experiment (Figure 3)** 
+- **Case Study 1: Residential Crime (Figure 5)** 
+- **Case Study 2: Population Density (Figure 6)** 
+- **Case Study 3: Net Primary Productivity (Figure 7)** 
+- **Noise Sensitivity Analysis (Figure 8)**
 
 All reproduction workflows start from the **shared source data** in this repository and end with the **analysis/modeling outputs** and **visualizations** presented in the manuscript.
 
