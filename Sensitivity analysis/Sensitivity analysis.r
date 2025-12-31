@@ -38,7 +38,7 @@ popd_sf
   res = data.frame()
   for (i in seq_along(a)) {
     g = spEDM::gcmc(data = popd_sf, cause = x[i], effect = y[i],
-                    E = 10, k = 168, nb = popd_nb)
+                    E = 11, k = 176, nb = popd_nb)
     
     tempdf = g$xmap |> 
       dplyr::select(x_xmap_y_mean,x_xmap_y_sig,
