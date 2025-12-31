@@ -2,7 +2,14 @@
 
 This repository provides all the necessary materials to **fully reproduce all findings** (figures and assessment metrics) reported in the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.
 
-The materials cover: - **Synthetic Benchmark Experiment (Figure 3)** - **Case Study 1: Residential Crime (Figure 4)** - **Case Study 2: Population Density (Figure 5)** - **Case Study 3: Net Primary Productivity (Figure 6)** - **Noise Sensitivity Analysis (Figure 7)**
+The materials cover: 
+
+- **Schematic Illustrations in Figures 1–3**
+- **Synthetic Benchmark Experiment (Figure 4)** 
+- **Case Study 1: Residential Crime (Figure 5)** 
+- **Case Study 2: Population Density (Figure 6)** 
+- **Case Study 3: Net Primary Productivity (Figure 7)** 
+- **Noise Sensitivity Analysis (Figure 8)**
 
 All reproduction workflows start from the **shared source data** in this repository and end with the **analysis/modeling outputs** and **visualizations** presented in the manuscript.
 
@@ -10,8 +17,8 @@ All reproduction workflows start from the **shared source data** in this reposit
 
 The code has been tested and verified in the following environment:
 
--   **Operating System**: Ubuntu 22.04\
--   **R version**: 4.4.3\
+-   **Operating System**: Windows 11
+-   **R version**: 4.5.2
 -   **spEDM version**: 1.9
 
 To ensure full reproducibility, it is recommended to match the environment above as closely as possible.
@@ -20,37 +27,49 @@ To ensure full reproducibility, it is recommended to match the environment above
 
 The folder is organized by case studies and corresponding figures:
 
-```         
-├── Case of residential crime study         # Related to Figure 4
-│   ├── Figure4.r
+```
+├── Spatial embedding                       # Related to Figure 1
+│   |── spatial embedding.r
+│   ├── henan.geojson
+|   ├── *.png, *.pdf, etc.
+|
+├── Schematic diagram                       # Related to Figure 2,3
+│   ├── intersectional cardinality.r 
+│   |── schematic symbols.r
+│   ├── hypothesis.r
+|   ├── *.csv, *.png, *.pdf, etc.
+|
+├── Synthetic benchmark                     # Related to Figure 4
+│   ├── Synthetic benchmark.r
+|   ├── *.rds, *.pptx, *.pdf, etc.
+|
+├── Case of residential crime study         # Related to Figure 5
+│   ├── Figure5.r
 │   ├── Case of residential crime study.r
 │   ├── columbus.gpkg
-│   ├── *.rds, *.xlsx, etc.
+│   ├── *.rds, *.xlsx, *.png, *.pdf, etc.
 │
-├── Case of population density study        # Related to Figure 5
-│   ├── Figure5.r
+├── Case of population density study        # Related to Figure 6
+│   ├── Figure6.r
 │   ├── Case of population density study.r
 │   ├── popd.csv
 │   ├── popd_nb.gal
-│   ├── *.rds, *.xlsx, etc.
+│   ├── *.rds, *.xlsx, *.png, *.pdf, etc.
 │
-├── Case of net primary productivity study  # Related to Figure 6
-│   ├── Figure6.r
+├── Case of net primary productivity study  # Related to Figure 7
+│   ├── Figure7.r
 │   ├── Case of net primary productivity study.r
 │   ├── npp.tif
-│   ├── *.rds, *.xlsx, etc.
+│   ├── *.rds, *.xlsx, *.png, *.pdf, etc.
 │
-├── Sensitivity analysis                    # Related to Figure 7
-│   ├── Figure7.r
+├── Sensitivity analysis                    # Related to Figure 8
+│   ├── Figure8.r
 │   ├── Sensitivity analysis.r
-│   ├── *.xlsx, etc.
+│   ├── *.xlsx, *.png, *.pdf, etc.
 │
-├── Synthetic benchmark                     # Related to Figure 3
-│   ├── Synthetic benchmark.r
-|   ├── *.rds, etc.
-|
 ├── Utils
 │   ├── ssh_q.r
+│   ├── directlingam_cf.r
 │   ├── process_results.r
 │   ├── plot_cs_matrix.r
 │
@@ -86,7 +105,7 @@ install.packages("spEDM", dep = TRUE)
 
 ------------------------------------------------------------------------
 
-### Synthetic Benchmark (Figure 3)
+### Synthetic Benchmark (Figure 4)
 
 **Workflow**:
 
@@ -103,7 +122,7 @@ source("Synthetic benchmark/Synthetic benchmark.r")
 
 ------------------------------------------------------------------------
 
-### Case Study 1: Residential Crime (Figure 4)
+### Case Study 1: Residential Crime (Figure 5)
 
 **Workflow**:
 
@@ -111,18 +130,18 @@ source("Synthetic benchmark/Synthetic benchmark.r")
 2.  Apply comparative models and our gcmc model.
 3.  Save model outputs (stored in `.rds` and `.xlsx`).
 4.  Compute assessment metrics (causal strength and significance).
-5.  Plot final results using `Figure4.r`.
+5.  Plot final results using `Figure5.r`.
 
 **Reproduce with**:
 
 ``` r
 source("Case of residential crime study/Case of residential crime study.r")
-source("Case of residential crime study/Figure4.r")
+source("Case of residential crime study/Figure5.r")
 ```
 
 ------------------------------------------------------------------------
 
-### Case Study 2: Population Density (Figure 5)
+### Case Study 2: Population Density (Figure 6)
 
 **Workflow**:
 
@@ -131,18 +150,18 @@ source("Case of residential crime study/Figure4.r")
 3.  Apply comparative models and our gcmc model.
 4.  Save model outputs.
 5.  Compute reported metrics.
-6.  Plot results using `Figure5.r`.
+6.  Plot results using `Figure6.r`.
 
 **Reproduce with**:
 
 ``` r
 source("Case of population density study/Case of population density study.r")
-source("Case of population density study/Figure5.r")
+source("Case of population density study/Figure6.r")
 ```
 
 ------------------------------------------------------------------------
 
-### Case Study 3: Net Primary Productivity (Figure 6)
+### Case Study 3: Net Primary Productivity (Figure 7)
 
 **Workflow**:
 
@@ -151,18 +170,18 @@ source("Case of population density study/Figure5.r")
 3.  Apply comparative models and our gcmc model.
 4.  Save outputs.
 5.  Compute performance metrics.
-6.  Plot results (Figure 6).
+6.  Plot results (Figure 7).
 
 **Reproduce with**:
 
 ``` r
 source("Case of net primary productivity study/Case of net primary productivity study.r")
-source("Case of net primary productivity study/Figure6.r")
+source("Case of net primary productivity study/Figure7.r")
 ```
 
 ------------------------------------------------------------------------
 
-### Sensitivity Analysis (Figure 7)
+### Sensitivity Analysis (Figure 8)
 
 **Workflow**:
 
@@ -176,7 +195,7 @@ source("Case of net primary productivity study/Figure6.r")
 
 ``` r
 source("Sensitivity analysis/Sensitivity analysis.r")
-source("Sensitivity analysis/Figure7.r")
+source("Sensitivity analysis/Figure8.r")
 ```
 
 ------------------------------------------------------------------------
