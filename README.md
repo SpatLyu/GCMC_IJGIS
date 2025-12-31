@@ -9,6 +9,7 @@ The materials cover:
 - **Case Study 2: Population Density (Figure 6)** 
 - **Case Study 3: Net Primary Productivity (Figure 7)** 
 - **Noise Sensitivity Analysis (Figure 8)**
+- **Schematic Illustrations in Figures 1–3**
 
 All reproduction workflows start from the **shared source data** in this repository and end with the **analysis/modeling outputs** and **visualizations** presented in the manuscript.
 
