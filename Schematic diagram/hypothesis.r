@@ -3,9 +3,9 @@
 Mx = readr::read_csv('./Schematic diagram/Mx.csv')
 My = readr::read_csv('./Schematic diagram/My.csv')
 
-H1 = spEDM:::RcppIntersectionCardinality(as.matrix(Mx), as.matrix(My),
-                                         1:nrow(Mx), 1:nrow(Mx),
-                                         ceiling(sqrt(3*nrow(Mx))))
+H1 = spEDM:::RcppIntersectionalCardinality(as.matrix(Mx), as.matrix(My),
+                                           1:nrow(Mx), 1:nrow(Mx),
+                                           ceiling(sqrt(3*nrow(Mx))))
 H0 = seq_along(H1) / nrow(Mx)
 aucH1 = sdsfun::normalize_vector(H1)
 aucH0 = sdsfun::normalize_vector(H0)
