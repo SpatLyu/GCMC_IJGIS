@@ -2,7 +2,7 @@ if (!requireNamespace("reticulate")) install.packages("reticulate")
 reticulate::py_require("lingam")
 
 run_directlingam = \(df){
-  lingam = reticulate::import('lingam')
+  lingam = reticulate::import("lingam")
   mdl = lingam$DirectLiNGAM()
   mdl$fit(df)
   cfm = mdl$adjacency_matrix_

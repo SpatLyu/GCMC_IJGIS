@@ -1,20 +1,20 @@
 # --- Demonstration of Intersectional Cardinality ---
 
-Mx = as.matrix(readr::read_csv('./Schematic diagram/Mx.csv'))
-My = as.matrix(readr::read_csv('./Schematic diagram/My.csv'))
+Mx = as.matrix(readr::read_csv("./Schematic diagram/Mx.csv"))
+My = as.matrix(readr::read_csv("./Schematic diagram/My.csv"))
 
-Dx = spEDM:::RcppMatDistance(Mx,L1norm = FALSE,NA_rm = TRUE)
-Dy = spEDM:::RcppMatDistance(My,L1norm = FALSE,NA_rm = TRUE)
+Dx = spEDM:::RcppMatDistance(Mx, L1norm = FALSE, na_rm = TRUE)
+Dy = spEDM:::RcppMatDistance(My, L1norm = FALSE, na_rm = TRUE)
 
 NNx = order(Dx[1,])[2:150]
 NNy = order(Dy[1,])[2:150]
-NNyp = unique(unlist(purrr::map(NNx,\(.idx) order(Dy[.idx,])[2:150])))
+NNyp = unique(unlist(purrr::map(NNx, \(.idx) order(Dy[.idx,])[2:150])))
 # sum(NNyp %in% NNy) / length(NNy)
 
-NNx_range = apply(Mx[NNx,],2,range)
-NNy_range = apply(My[NNy,],2,range)
-NNyp_range = apply(My[NNyp,],2,range)
-NN_range = rbind(NNx_range,NNy_range,NNyp_range) |> 
+NNx_range = apply(Mx[NNx,], 2, range)
+NNy_range = apply(My[NNy,], 2, range)
+NNyp_range = apply(My[NNyp,], 2, range)
+NN_range = rbind(NNx_range, NNy_range, NNyp_range) |> 
   apply(2,range) |> 
   range()
 
