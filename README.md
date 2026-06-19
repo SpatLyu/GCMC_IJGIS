@@ -1,8 +1,30 @@
-# Reproducibility Instructions for GCMC
+[![IJGIS](https://img.shields.io/badge/IJGIS-10.1080%2F13658816.2026.2687121-f25b3e?logo=doi&style=flat)](https://doi.org/10.1080/13658816.2026.2687121)
 
-This repository provides all the necessary materials to **fully reproduce all findings** (figures and assessment metrics) reported in the manuscript on the **GCMC algorithm** submitted to *International Journal of Geographical Information Science (IJGIS)*.
+This repository provides all materials necessary to reproduce the figures and assessment metrics reported in the paper *Measuring causal strengths from spatial cross-sectional data with geographical cross mapping cardinality*, which introduces the **GCMC algorithm** and is published in the *International Journal of Geographical Information Science (IJGIS)*. If you use GCMC in your work, please cite it as:
 
-The materials cover: 
+```
+Lyu, W., Dai, S., Song, Y., Zhao, W., Yi, W., Xiao, Y., Jia, N., 2026. Measuring causal strengths from spatial cross-sectional data with geographical cross mapping cardinality. International Journal of Geographical Information Science 1–23. https://doi.org/10.1080/13658816.2026.2687121
+```
+
+and a BibTeX entry for LaTeX users is:
+
+``` bib
+@article{lyu2026gcmc, 
+    title = {Measuring causal strengths from spatial cross-sectional data with geographical cross mapping cardinality}, 
+    ISSN = {1362-3087}, 
+    DOI = {10.1080/13658816.2026.2687121}, 
+    journal = {International Journal of Geographical Information Science}, 
+    publisher = {Informa UK Limited}, 
+    author = {Lyu, Wenbo and Dai, Shaoqing and Song, Yongze and Zhao, Wufan and Yi, Wen and Xiao, Yumiao and Jia, Nan}, 
+    year = {2026}, 
+    month = {June}, 
+    pages = {1–23} 
+}
+```
+
+## General Reproducibility Instructions
+
+The materials in this repository cover: 
 
 - **Schematic Illustrations in Figures 1–3**
 - **Synthetic Benchmark Experiment (Figure 4)** 
