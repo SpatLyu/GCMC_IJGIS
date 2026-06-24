@@ -7,8 +7,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 if (!requireNamespace("ggradar")) {
-  devtools::install_github("ricardo-bion/ggradar", 
-                           dependencies = TRUE)
+  pak::pak("ricardo-bion/ggradar", dependencies = TRUE)
 }
 
 #------------------------------------------------------------------------------#
@@ -30,7 +29,7 @@ fig8a = ggradar::ggradar(df1,
                          group.point.size = 2.05,
                          legend.position = "bottom")
 fig8a
-ggplot2::ggsave('./Sensitivity analysis/fig8a.png',
+ggplot2::ggsave("./Sensitivity analysis/fig8a.png",
                 fig8a, width = 6.55, height = 5.85, dpi = 300)
 
 #------------------------------------------------------------------------------#
@@ -52,7 +51,7 @@ fig8b = ggradar::ggradar(df2,
                          group.point.size = 2.05,
                          legend.position = "bottom")
 fig8b
-ggplot2::ggsave('./Sensitivity analysis/fig8b.png',
+ggplot2::ggsave("./Sensitivity analysis/fig8b.png",
                 fig8b, width = 6.55, height = 5.85, dpi = 300)
 
 #------------------------------------------------------------------------------#
@@ -74,5 +73,5 @@ fig8c = ggradar::ggradar(df3,
                          group.point.size = 2.05,
                          legend.position = "bottom")
 fig8c
-ggplot2::ggsave('./Sensitivity analysis/fig8c.png',
+ggplot2::ggsave("./Sensitivity analysis/fig8c.png",
                 fig8c, width = 6.55, height = 5.85, dpi = 300)

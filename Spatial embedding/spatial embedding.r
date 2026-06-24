@@ -1,4 +1,4 @@
-henan = sf::read_sf('./Spatial embedding/henan.geojson')
+henan = sf::read_sf("./Spatial embedding/henan.geojson")
 
 # bb = henan |> 
 #   st_bbox() |>
@@ -16,7 +16,7 @@ henan[henan$Code == "4110",]
 
 spunit = list()
 spunit[[1]] = nb[[10]]
-spunit[[2]] = setdiff(spEDM:::RcppLaggedNeighbor4Lattice(nb,2)[[10]],c(nb[[10]],10))
+spunit[[2]] = setdiff(spEDM:::RcppLaggedNeighbor4Lattice(nb,2)[[10]], c(nb[[10]], 10))
 spunit[[3]] = setdiff(spEDM:::RcppLaggedNeighbor4Lattice(nb,3)[[10]],
                       spEDM:::RcppLaggedNeighbor4Lattice(nb,2)[[10]])
 
@@ -36,12 +36,11 @@ library(tmap)
 
 fig11 = tm_shape(henan) + 
   tm_polygons(fill = "lagnum",
-              fill.scale = tm_scale_categorical(n.max = 4,
-                                                values = rev(
-                                                  c("#fee5d9",
-                                                    "#fcbba1",
-                                                    "#fb6a4a",
-                                                    "#de2d26"))),
+              fill.scale = tm_scale_categorical(
+                n.max = 4,
+                values = rev(
+                  c("#fee5d9", "#fcbba1",
+                    "#fb6a4a", "#de2d26"))),
               fill.legend = tm_legend(
                 title = "Spatial Lags",
                 design = "standard",
@@ -51,21 +50,21 @@ fig11 = tm_shape(henan) +
                                      pos.v = "bottom"),
                 show = TRUE
               ),
-              col = 'grey', lwd = 1.25) +
-  tm_text("popdensity",size = 1.05, # angle = 5,
-          options = opt_tm_text(just = "top",on_surface = TRUE)) +
+              col = "grey", lwd = 1.25) +
+  tm_text("popdensity", size = 1.05, # angle = 5,
+          options = opt_tm_text(just = "top", on_surface = TRUE)) +
   tm_layout(frame = FALSE)
 fig11
-tmap_save(fig11,"./Spatial embedding/figure1_1.png",dpi = 300)
+tmap_save(fig11, "./Spatial embedding/figure1_1.png", dpi = 300)
 
-# png('./Spatial embedding/figure1_1.png', width = 1500, height = 1500, res = 300)  
+# png("./Spatial embedding/figure1_1.png", width = 1500, height = 1500, res = 300)  
 # par(mar = rep(0,4))
-# plot(sf::st_geometry(henan), col = 'white', lwd = 1.25, border = "grey40")
+# plot(sf::st_geometry(henan), col = "white", lwd = 1.25, border = "grey40")
 # plot(nb,coords = sdsfun::sf_coordinates(henan), lwd=1.05, col="blue", cex = 1.25, add = TRUE)
 # dev.off()
 
 embeddings = spEDM::embedded(henan, target = "popdensity", E = 3, tau = 1)
-colnames(embeddings) = c("hs1","hs2","hs3")
+colnames(embeddings) = c("hs1", "hs2", "hs3")
 embeddings[10,1:3]
 
 henan$popdensity[spunit[[1]]] / 5
@@ -78,5 +77,5 @@ scatterplot3d::scatterplot3d(x = embeddings[,1], y = embeddings[,2], z = embeddi
                              xlab = latex2exp::TeX("$h_{s(1)}(x)$"),
                              ylab = latex2exp::TeX("$h_{s(2)}(x)$"),
                              zlab = latex2exp::TeX("$h_{s(3)}(x)$"),
-                             pch = 16, color="red", angle = 45)
+                             pch = 16, color = "red", angle = 45)
 dev.off()

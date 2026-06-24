@@ -78,7 +78,7 @@ GenStateSpace = \(ts, E = 3, tau = 1) {
   return(M)
 }
 
-Mx = GenStateSpace(lorenz[,"x"],E = 20,tau = 3)
+Mx = GenStateSpace(lorenz[,"x"], E = 20, tau = 3)
 
 png("./Schematic diagram/Mx.png", width = 1600, height = 1600, res = 300, bg = "white")
 plot3D::scatter3D(Mx[,3], Mx[,6], Mx[,9],
@@ -88,7 +88,7 @@ dev.off()
 
 # --- Plot MY view ---
 
-My = GenStateSpace(lorenz[,"y"],E = 20,tau = 3)
+My = GenStateSpace(lorenz[,"y"], E = 20, tau = 3)
 
 png("./Schematic diagram/My.png", width = 1600, height = 1600, res = 300, bg = "white")
 plot3D::scatter3D(My[,3], My[,6], My[,9],
@@ -99,9 +99,9 @@ dev.off()
 # --- Export Mx and My ---
 
 Mx = as.data.frame(Mx[,c(3,6,9)])
-names(Mx) = c("x","y","z")
-readr::write_csv(Mx, './Schematic diagram/Mx.csv')
+names(Mx) = c("x", "y", "z")
+readr::write_csv(Mx, "./Schematic diagram/Mx.csv")
 
 My = as.data.frame(My[,c(3,6,9)])
-names(My) = c("x","y","z")
-readr::write_csv(My, './Schematic diagram/My.csv')
+names(My) = c("x", "y", "z")
+readr::write_csv(My, "./Schematic diagram/My.csv")

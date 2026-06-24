@@ -2,7 +2,7 @@ plot_cs_matrix = \(.tbf,legend_title = "Causal Strength"){
   .tbf = .tbf |>
     dplyr::mutate(sig_marker = dplyr::case_when(
       sig > 0.05 ~ sprintf("paste(%.4f^'#')", cs),
-      TRUE ~ sprintf('%.4f', cs)
+      TRUE ~ sprintf("%.4f", cs)
     ))
   
   fig = ggplot2::ggplot(data = .tbf,

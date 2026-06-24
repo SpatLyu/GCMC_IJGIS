@@ -18,12 +18,12 @@ if (!requireNamespace("spEDM")) install.packages("spEDM")
 #------           Simulate spatial distribution of three species        ------#
 #-----------------------------------------------------------------------------#
 
-sim_trispecies = \(nx,ny,seed = 123){
+sim_trispecies = \(nx, ny, seed = 123){
   grid = expand.grid(seq(0, 10, length.out = nx), 
                      seq(0, 10, length.out = ny))
-  cov.fun = \(d, range = 1.5, sill=1) sill * exp(-d/range)
+  cov.fun = \(d, range = 1.5, sill = 1) sill * exp(-d/range)
   dist.mat = fields::rdist(grid)
-  cov.mat = cov.fun(dist.mat, range=1.5, sill=1)
+  cov.mat = cov.fun(dist.mat, range = 1.5, sill = 1)
   set.seed(seed)
   res = replicate(3, {
     MASS::mvrnorm(1, rep(0, nrow(grid)), cov.mat) |>
@@ -35,14 +35,14 @@ sim_trispecies = \(nx,ny,seed = 123){
   terra::rast(res)
 }
 
-species = sim_trispecies(20,20, seed = 42) 
+species = sim_trispecies(20, 20, seed = 42) 
 names(species) = letters[1:3]
-terra::plot(species,nc = 3)
+terra::plot(species, nc = 3)
 
 s_val = terra::values(species)
-stats::cor.test(s_val[,"a"],s_val[,"b"])
-stats::cor.test(s_val[,"a"],s_val[,"c"])
-stats::cor.test(s_val[,"b"],s_val[,"c"])
+stats::cor.test(s_val[,"a"], s_val[,"b"])
+stats::cor.test(s_val[,"a"], s_val[,"c"])
+stats::cor.test(s_val[,"b"], s_val[,"c"])
 
 #-----------------------------------------------------------------------------#
 #------                        Scenario 1: a→b→c                        ------#
@@ -78,15 +78,15 @@ g3 = spEDM::gcmc(species_scenario1, "a", "c", E = 6, k = 120)
 g3
 g3$xmap
 
-gcmc_s1 = list(g1,g2,g3)
-readr::write_rds(gcmc_s1,'./Synthetic benchmark/gcmc_s1.rds')
+gcmc_s1 = list(g1, g2, g3)
+readr::write_rds(gcmc_s1, "./Synthetic benchmark/gcmc_s1.rds")
 
 g1 = spEDM::gccm(species_scenario1, "a", "b", E = 6, k = 8)
 g2 = spEDM::gccm(species_scenario1, "b", "c", E = 6, k = 8)
 g3 = spEDM::gccm(species_scenario1, "a", "c", E = 6, k = 8)
 
-gccm_s1 = list(g1,g2,g3)
-readr::write_rds(gccm_s1,'./Synthetic benchmark/gccm_s1.rds')
+gccm_s1 = list(g1, g2, g3)
+readr::write_rds(gccm_s1, "./Synthetic benchmark/gccm_s1.rds")
 
 #-----------------------------------------------------------------------------#
 #------                        Scenario 2: a→b←c                        ------#
@@ -122,15 +122,15 @@ g3 = spEDM::gcmc(species_scenario2, "a", "c", E = 6, k = 72)
 g3
 g3$xmap
 
-gcmc_s2 = list(g1,g2,g3)
-readr::write_rds(gcmc_s2,'./Synthetic benchmark/gcmc_s2.rds')
+gcmc_s2 = list(g1, g2, g3)
+readr::write_rds(gcmc_s2, "./Synthetic benchmark/gcmc_s2.rds")
 
 g1 = spEDM::gccm(species_scenario2, "a", "b", E = 6, k = 8)
 g2 = spEDM::gccm(species_scenario2, "b", "c", E = 6, k = 8)
 g3 = spEDM::gccm(species_scenario2, "a", "c", E = 6, k = 8)
 
-gccm_s2 = list(g1,g2,g3)
-readr::write_rds(gccm_s2,'./Synthetic benchmark/gccm_s2.rds')
+gccm_s2 = list(g1, g2, g3)
+readr::write_rds(gccm_s2, "./Synthetic benchmark/gccm_s2.rds")
 
 #-----------------------------------------------------------------------------#
 #------                      Scenario 3: a←b→c                          ------#
@@ -166,12 +166,12 @@ g3 = spEDM::gcmc(species_scenario3, "a", "c", E = 8, k = 160)
 g3
 g3$xmap
 
-gcmc_s3 = list(g1,g2,g3)
-readr::write_rds(gcmc_s3,'./Synthetic benchmark/gcmc_s3.rds')
+gcmc_s3 = list(g1, g2, g3)
+readr::write_rds(gcmc_s3, "./Synthetic benchmark/gcmc_s3.rds")
 
 g1 = spEDM::gccm(species_scenario3, "a", "b", E = 8, k = 10)
 g2 = spEDM::gccm(species_scenario3, "b", "c", E = 8, k = 10)
 g3 = spEDM::gccm(species_scenario3, "a", "c", E = 8, k = 10)
 
-gccm_s3 = list(g1,g2,g3)
-readr::write_rds(gccm_s3,'./Synthetic benchmark/gccm_s3.rds')
+gccm_s3 = list(g1, g2, g3)
+readr::write_rds(gccm_s3, "./Synthetic benchmark/gccm_s3.rds")
